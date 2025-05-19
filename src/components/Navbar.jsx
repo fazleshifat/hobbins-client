@@ -28,7 +28,10 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link className="text-xl">hoBBins</Link>
+                <Link to='/' className='flex items-center'>
+                    <img src="/assets/logo.png" className='w-10' alt="logo" />
+                    <p className="text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">hoBBins</p>
+                </Link>
             </div>
             <div className="flex items-center gap-2">
 
