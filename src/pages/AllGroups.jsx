@@ -7,39 +7,38 @@ const AllGroups = () => {
 
 
     return (
-        <div className='grid grid-cols-1 min-h-screen md:grid-cols-3 max-w-11/12 p-8 gap-6 mx-auto'>
+        <div className='grid grid-cols-1 min-h-screen md:grid-cols-3 max-w-11/12 p-2 md:p-8 gap-6 mx-auto'>
 
             {
                 groupsData.map(group => (
-                    <div key={group._id} className="card bg-base-300 h-fit shadow-lg">
-                        <figure className="px-10 pt-10">
+                    <div key={group._id} className="card bg-base-300 shadow-lg h-fit w-full max-w-md mx-auto md:max-w-lg">
+                        <figure className="px-4 pt-6 md:px-10 md:pt-10">
                             <img
                                 src={group.image}
                                 alt="Group"
-                                className="rounded-xl h-60 w-full"
+                                className="rounded-xl w-full h-40 object-cover md:h-60"
                             />
                         </figure>
-                        <div className="card-body mx-auto text-center space-y-2 ">
-                            <h2 className="card-title text-2xl mx-auto text-center">{group.name}</h2>
+                        <div className="card-body text-center space-y-2 px-4 md:px-6">
+                            <h2 className="card-title mx-auto text-lg md:text-2xl">{group.name}</h2>
 
-                            <div className="grid grid-cols-1 gap-2 mx-auto text-sm">
+                            <div className="grid grid-cols-1 gap-2 text-sm md:text-base">
                                 <p><span className="font-semibold">Category:</span> {group.category}</p>
                                 <p><span className="font-semibold">Start Date:</span> {group.startDate}</p>
                                 <p><span className="font-semibold">Location:</span> {group.meetingLocation}</p>
+                                {/* Uncomment for full display */}
                                 {/* <p><span className="font-semibold">Max Members:</span> {parseInt(group.maxMembers)}</p>
-                                <p><span className="font-semibold">Host:</span> {group.userName}</p>
-                                <p><span className="font-semibold">Email:</span> {group.userEmail}</p>
-                           
-                                <p><span className="font-semibold flex">Description:</span>
-                                    {group.description}
-                                </p> */}
+                            <p><span className="font-semibold">Host:</span> {group.userName}</p>
+                            <p><span className="font-semibold">Email:</span> {group.userEmail}</p>
+                            <p><span className="font-semibold">Description:</span> {group.description}</p> */}
                             </div>
 
                             <div className="card-actions justify-center mt-4">
-                                <Link to={`/group/${group._id}`} className="btn btn-outline btn-primary">See More</Link>
+                                <Link to={`/group/${group._id}`} className="btn btn-outline btn-primary btn-sm md:btn-md">See More</Link>
                             </div>
                         </div>
                     </div>
+
                 ))
             }
 
