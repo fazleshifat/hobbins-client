@@ -7,11 +7,11 @@ const AllGroups = () => {
     const { name, category, startDate, maxMembers, meetingLocation, image, userName, userEmail, description } = groupsData[0];
 
     return (
-        <div className='grid grid-cols-1 shadow-2xl md:grid-cols-3 max-w-11/12 gap-6 mx-auto border-2'>
+        <div className='grid grid-cols-1 min-h-screen md:grid-cols-3 max-w-11/12 p-8 gap-6 mx-auto'>
 
             {
                 groupsData.map(group => (
-                    <div className="card bg-base-300 shadow-lg">
+                    <div className="card bg-base-300 h-fit shadow-lg">
                         <figure className="px-10 pt-10">
                             <img
                                 src={group.image}
@@ -36,7 +36,7 @@ const AllGroups = () => {
                             </div>
 
                             <div className="card-actions justify-center mt-4">
-                                <Link className="btn btn-outline btn-primary">See More</Link>
+                                <Link to={`/group/${group._id}`} className="btn btn-outline btn-primary">See More</Link>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,11 @@
 import React from 'react';
+import { useLoaderData } from 'react-router';
 
 const DemoCards = () => {
+
+    const groupData = useLoaderData();
+    console.log(groupData)
+
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 max-w-11/12 gap-6 mx-auto border-2'>
             <div className="card bg-base-200 shadow-lg">

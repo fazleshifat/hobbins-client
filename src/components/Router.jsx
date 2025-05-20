@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import DemoCards from "./DemoCards";
 import CreateGroup from "../pages/CreateGroup";
 import AllGroups from "../pages/AllGroups";
+import GroupDetails from "../pages/GroupDetails";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,12 @@ export const router = createBrowserRouter([
             {
                 path: '/myGroups',
                 Component: DemoCards
+            },
+            ,
+            {
+                path: '/group/:id',
+                loader: ({ params }) => fetch(`http://localhost:3000/group/${params.id}`),
+                Component: GroupDetails
             },
             {
                 path: '/SignIn',
