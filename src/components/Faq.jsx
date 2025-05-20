@@ -11,7 +11,7 @@ const Faq = () => {
             <div className="collapse collapse-arrow join-item border-base-300 border">
                 <input type="radio" name="my-accordion-4" />
                 <div className="collapse-title font-semibold">I forgot my password. What should I do?</div>
-                <div className="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the instructions sent to your email.</div>
+                <div className="collapse-content text-sm">Click on "Forgot Password" on the SignIn page and follow the instructions sent to your email.</div>
             </div>
             <div className="collapse collapse-arrow join-item border-base-300 border">
                 <input type="radio" name="my-accordion-4" />

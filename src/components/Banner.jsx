@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
 import Slider from './Slider';
+import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const Banner = () => {
+
     return (
         <div className='bg-base-200'>
-            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto gap-20 items-center">
+            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto border-2 items-center">
 
                 <Slider></Slider>
 

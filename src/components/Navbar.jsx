@@ -43,7 +43,7 @@ const Navbar = () => {
 
                 <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
 
-                <Link to='/login' className='btn btn-primary'>Login</Link>
+                <Link to='/SignIn' className='btn btn-primary'>SignIn</Link>
                 <Link to='/signUp' className='btn btn-secondary'>Register</Link>
 
                 <div className="dropdown dropdown-hover">

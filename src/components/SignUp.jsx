@@ -1,20 +1,66 @@
-import React from 'react';
+import React, { use } from 'react';
+import { Link } from 'react-router';
+import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const SignUp = () => {
+
+    const { createUser } = use(AuthContext);
+
+    const handleCreateUser = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const { email, password, ...rest } = Object.fromEntries(formData.entries());
+
+        const userProfile = {
+            email,
+            ...rest
+        }
+        // console.log(userProfile)
+
+        // create user on firebase
+        createUser(email, password)
+            .then(userCredential => {
+                console.log(userCredential.user)
+
+                // save data in DB
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userProfile)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('user data after save at DB', data)
+                    })
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+
+    }
+
     return (
         <div className="flex items-center bg-base-200 min-h-screen">
             <div className="flex-col w-lg mx-auto">
                 <div className="bg-base-100 p-4 shadow-2xl">
                     <h1 className="text-5xl text-center font-bold">Sign up now!</h1>
                     <div className="card-body">
-                        <fieldset className="fieldset">
+                        <form onSubmit={handleCreateUser}>
+                            <label className="label">Name</label>
+                            <input type="text" name='name' className="input w-full" placeholder="Email" />
+                            <label className="label">Photo URL</label>
+                            <input type="text" name='photo' className="input w-full" placeholder="Email" />
                             <label className="label">Email</label>
-                            <input type="email" className="input w-full" placeholder="Email" />
+                            <input type="email" name='email' className="input w-full" placeholder="Email" />
                             <label className="label">Password</label>
-                            <input type="password" className="input w-full" placeholder="Password" />
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            <input type="password" name='password' className="input w-full" placeholder="Password" />
+                            <div>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
                             <button className="btn btn-neutral mt-4">Sign Up</button>
-                        </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
