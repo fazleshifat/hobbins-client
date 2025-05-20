@@ -4,14 +4,14 @@ import { Link, useLoaderData } from 'react-router';
 const AllGroups = () => {
 
     const groupsData = useLoaderData();
-    const { name, category, startDate, maxMembers, meetingLocation, image, userName, userEmail, description } = groupsData[0];
+
 
     return (
         <div className='grid grid-cols-1 min-h-screen md:grid-cols-3 max-w-11/12 p-8 gap-6 mx-auto'>
 
             {
                 groupsData.map(group => (
-                    <div className="card bg-base-300 h-fit shadow-lg">
+                    <div key={group._id} className="card bg-base-300 h-fit shadow-lg">
                         <figure className="px-10 pt-10">
                             <img
                                 src={group.image}

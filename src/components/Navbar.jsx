@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const Navbar = () => {
+
+    const { user } = use(AuthContext);
 
     const links = (
         <>
@@ -43,24 +46,36 @@ const Navbar = () => {
 
                 <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
 
-                <Link to='/SignIn' className='btn btn-primary'>SignIn</Link>
-                <Link to='/signUp' className='btn btn-secondary'>Register</Link>
+                {
+                    !user ?
+                        (
+                            <>
+                                <Link to='/SignIn' className='btn btn-primary'>SignIn</Link>
+                                <Link to='/signUp' className='btn btn-secondary'>Register</Link>
+                            </>
+                        )
 
-                <div className="dropdown dropdown-hover">
+                        :
+                        (
+                            <>
+                                <div className="dropdown dropdown-hover">
 
-                    <div className="w-10 rounded-full">
-                        <img
-                            className='rounded-full'
-                            alt="Tailwind CSS Navbar component"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            className='rounded-full'
+                                            alt="Tailwind CSS Navbar component"
+                                            src={user.photoURL} />
 
-                    </div>
+                                    </div>
 
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-fit p-2 shadow-sm">
-                        <p>Al Fazle Shifat</p>
-                    </ul>
-                </div>
-                <button className='btn btn-accent text-white ml-1'>Logout</button>
+                                    <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 flex w-30 border-2 shadow-sm">
+                                        <p>{user.displayName}</p>
+                                    </div>
+                                </div>
+                                <button className='btn btn-accent text-white ml-1'>Logout</button>
+                            </>
+                        )
+                }
             </div>
         </div>
     );

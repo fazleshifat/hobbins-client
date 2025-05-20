@@ -6,7 +6,7 @@ const Banner = () => {
 
     return (
         <div className='bg-base-200'>
-            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto border-2 items-center">
+            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto items-center">
 
                 <Slider></Slider>
 

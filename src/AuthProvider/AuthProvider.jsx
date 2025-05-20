@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContexts';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
 
 
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+
 
 
     useEffect(() => {
@@ -22,6 +23,26 @@ const AuthProvider = ({ children }) => {
     const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+
+    // to observe the authentic user
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+                console.log(user)
+                console.log(user.displayName)
+                console.log(user.email)
+
+            } else {
+                setUser(null);
+            }
+            // setLoading(false);
+        });
+
+
+        return () => unsubscribe();
+    }, [])
 
     const authInfo = {
         user,

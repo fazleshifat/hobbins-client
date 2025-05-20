@@ -1,18 +1,21 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 
-    const { createUser } = use(AuthContext);
+    const { createUser, setUser } = use(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleCreateUser = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
 
-        const { email, password, ...rest } = Object.fromEntries(formData.entries());
+        const { email, password, name, photo, ...rest } = Object.fromEntries(formData.entries());
 
 
         // console.log(userProfile)
@@ -21,6 +24,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                setUser(result.user)
 
                 const userProfile = {
                     email,
@@ -28,6 +32,19 @@ const SignUp = () => {
                     creationTime: result.user?.metadata?.creationTime,
                     lastSignInTime: result.user?.metadata?.lastSignInTime,
                 }
+
+                const profile = {
+                    displayName: name,
+                    photoURL: photo
+                }
+                updateProfile(result.user, profile)
+                    .then(() => {
+                        // toast('✅ User updated');
+                        navigate('/');
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
 
                 // save data in DB
                 fetch('http://localhost:3000/users', {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { data } from 'react-router';
+import Swal from 'sweetalert2';
 
 const CreateGroup = () => {
 
@@ -10,6 +11,9 @@ const CreateGroup = () => {
         const groupData = Object.fromEntries(formData.entries());
 
         console.log(groupData);
+
+
+
         // You can POST this to your backend here
 
         fetch('http://localhost:3000/groups', {
@@ -22,6 +26,15 @@ const CreateGroup = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        // position: "top-end",
+                        icon: "success",
+                        title: "Group created successfully!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
             })
     };
 
