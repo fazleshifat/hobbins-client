@@ -6,9 +6,9 @@ const Navbar = () => {
     const links = (
         <>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/myGroups'>My Groups</Link></li>
-            <li><Link to='/groups'>All Groups</Link></li>
             <li><Link to='/createGroup'>Create Groups</Link></li>
+            <li><Link to='/all-groups'>All Groups</Link></li>
+            <li><Link to='/myGroups'>My Groups</Link></li>
         </>
     )
 

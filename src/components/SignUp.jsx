@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
@@ -13,16 +14,20 @@ const SignUp = () => {
 
         const { email, password, ...rest } = Object.fromEntries(formData.entries());
 
-        const userProfile = {
-            email,
-            ...rest
-        }
+
         // console.log(userProfile)
 
         // create user on firebase
         createUser(email, password)
-            .then(userCredential => {
-                console.log(userCredential.user)
+            .then(result => {
+                console.log(result.user)
+
+                const userProfile = {
+                    email,
+                    ...rest,
+                    creationTime: result.user?.metadata?.creationTime,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime,
+                }
 
                 // save data in DB
                 fetch('http://localhost:3000/users', {
@@ -34,6 +39,15 @@ const SignUp = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                // position: "top-end",
+                                icon: "success",
+                                title: "Account created successfully!",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
                         console.log('user data after save at DB', data)
                     })
             })

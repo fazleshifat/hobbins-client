@@ -5,6 +5,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Home from "../pages/Home";
 import DemoCards from "./DemoCards";
+import CreateGroup from "../pages/CreateGroup";
+import AllGroups from "../pages/AllGroups";
 
 export const router = createBrowserRouter([
     {
@@ -16,12 +18,13 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path: '/groups',
-                Component: DemoCards
+                path: '/all-groups',
+                loader: () => fetch('http://localhost:3000/groups'),
+                Component: AllGroups
             },
             {
                 path: '/createGroup',
-                Component: DemoCards
+                Component: CreateGroup,
             },
             {
                 path: '/myGroups',
