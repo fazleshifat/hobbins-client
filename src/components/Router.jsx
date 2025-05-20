@@ -8,6 +8,7 @@ import DemoCards from "./DemoCards";
 import CreateGroup from "../pages/CreateGroup";
 import AllGroups from "../pages/AllGroups";
 import GroupDetails from "../pages/GroupDetails";
+import PrivateRoute from "../AuthProvider/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -26,11 +27,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/createGroup',
-                Component: CreateGroup,
+                element: <PrivateRoute>
+                    <CreateGroup></CreateGroup>
+                </PrivateRoute>
             },
             {
                 path: '/myGroups',
-                Component: DemoCards
+                element: <PrivateRoute>
+                    <DemoCards></DemoCards>
+                </PrivateRoute>
             },
             ,
             {

@@ -1,10 +1,27 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
+import { signOut } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import { auth } from '../firebase/firebase.init';
 
 const Navbar = () => {
 
     const { user } = use(AuthContext);
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+            Swal.fire({
+                // position: "top-end",
+                icon: "success",
+                title: "Signed out successful!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }).catch((error) => {
+            console.log(error.message)
+        });
+    }
 
     const links = (
         <>
@@ -72,7 +89,7 @@ const Navbar = () => {
                                         <p>{user.displayName}</p>
                                     </div>
                                 </div>
-                                <button className='btn btn-accent text-white ml-1'>Logout</button>
+                                <button onClick={handleSignOut} className='btn btn-accent text-white ml-1'>Logout</button>
                             </>
                         )
                 }

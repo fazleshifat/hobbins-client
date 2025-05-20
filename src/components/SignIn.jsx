@@ -1,12 +1,14 @@
 import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const SignIn = () => {
 
     const { signInUser, setUser } = use(AuthContext);
 
+    const location = useLocation();
     const navigate = useNavigate();
+    console.log(location)
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -22,7 +24,7 @@ const SignIn = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 setUser(userCredential.user);
-                navigate('/');
+                navigate(location?.state || '/');
 
             })
             .catch((error) => {
