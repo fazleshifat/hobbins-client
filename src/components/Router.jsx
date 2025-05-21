@@ -41,7 +41,9 @@ export const router = createBrowserRouter([
             {
                 path: '/group/:id',
                 loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/group/${params.id}`),
-                Component: GroupDetails
+                element: <PrivateRoute>
+                    <GroupDetails></GroupDetails>
+                </PrivateRoute>,
             },
             {
                 path: '/SignIn',

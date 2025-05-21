@@ -36,6 +36,7 @@ const SignIn = () => {
             })
             .catch((error) => {
                 setErrorMessage(error.code);
+                setLoading(false);
             });
     }
 
@@ -47,6 +48,7 @@ const SignIn = () => {
                 navigate(location?.state || '/');
             }).catch((error) => {
                 setErrorMessage(error.message);
+                setLoading(false);
             });
     }
 

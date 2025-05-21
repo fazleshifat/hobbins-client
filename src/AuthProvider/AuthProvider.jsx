@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContexts';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
+import { useLocation, useNavigate } from 'react-router';
 
 const provider = new GoogleAuthProvider();
 
@@ -9,7 +10,12 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState('')
+    const [loading, setLoading] = useState(true)
     // setErrorMessage('')
+
+
+    // const location = useLocation();
+    // const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -20,15 +26,18 @@ const AuthProvider = ({ children }) => {
 
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // google sign in
     const signInGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
@@ -44,7 +53,7 @@ const AuthProvider = ({ children }) => {
             } else {
                 setUser(null);
             }
-            // setLoading(false);
+            setLoading(false);
         });
 
 
@@ -57,8 +66,13 @@ const AuthProvider = ({ children }) => {
         createUser,
         signInUser,
         signInGoogle,
+        loading,
+        setLoading,
         errorMessage,
         setErrorMessage,
+        // location,
+        // navigate
+
 
     }
 

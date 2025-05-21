@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import { data } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const CreateGroup = () => {
+
+    const { setLoading } = use(AuthContext);
 
     const handleCreateGroup = (e) => {
         e.preventDefault();
@@ -11,6 +14,8 @@ const CreateGroup = () => {
         const groupData = Object.fromEntries(formData.entries());
 
         console.log(groupData);
+
+        // setLoading(false)
 
 
 
@@ -34,8 +39,15 @@ const CreateGroup = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    // form.reset(); // Optional: clear the form
                 }
             })
+            .catch((error) => {
+                console.error("Error creating group:", error);
+            })
+            .finally(() => {
+                setLoading(false); // Stop spinner
+            });
     };
 
 
