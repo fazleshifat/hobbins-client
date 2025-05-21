@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { signOut } from 'firebase/auth';
 import Swal from 'sweetalert2';
@@ -9,16 +9,18 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 const Navbar = () => {
 
     const { user } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
             Swal.fire({
                 // position: "top-end",
                 icon: "success",
-                title: "Signed out successful!",
+                title: "Signed out successful! Still you can visit the homepage",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000
             });
+            navigate('/SignIn')
         }).catch((error) => {
             console.log(error.message)
         });
@@ -36,7 +38,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar flex flex-col md:flex-row md:justify-between bg-base-100 shadow-sm px-4 py-2">
+        <div className="navbar md:justify-between bg-base-100 shadow-sm px-4 py-2">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">
@@ -95,9 +97,9 @@ const Navbar = () => {
                                         src={user.photoURL}
                                     />
                                 </div>
-                                    <p className="text-center">{user.displayName}</p>
+                                <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
 
-                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 w-32 p-2 shadow text-sm mt-2">
+                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 md:w-32 p-2 shadow text-sm mt-20">
                                     <p className="text-center">{user.displayName}</p>
                                 </div>
                             </div>

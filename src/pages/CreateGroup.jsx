@@ -1,11 +1,13 @@
 import React, { use } from 'react';
-import { data } from 'react-router';
+import { data, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const CreateGroup = () => {
 
-    const { setLoading } = use(AuthContext);
+    const { user, setLoading } = use(AuthContext);
+    const navigate = useNavigate();
+    // console.log(user.email)
 
     const handleCreateGroup = (e) => {
         e.preventDefault();
@@ -39,14 +41,16 @@ const CreateGroup = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // form.reset(); // Optional: clear the form
+
+                    navigate('/');
+                    form.reset();
                 }
             })
             .catch((error) => {
                 console.error("Error creating group:", error);
             })
             .finally(() => {
-                setLoading(false); // Stop spinner
+                setLoading(false);
             });
     };
 
@@ -70,6 +74,7 @@ const CreateGroup = () => {
                                         <option value="">Select category</option>
                                         <option value="drawing">Drawing</option>
                                         <option value="painting">Painting</option>
+                                        <option value="singing">Singing</option>
                                         <option value="photography">Photography</option>
                                         <option value="video gaming">Video Gaming</option>
                                         <option value="fishing">Fishing</option>
@@ -94,10 +99,10 @@ const CreateGroup = () => {
                                     <input type="text" name="image" className="input w-full" placeholder="Image URL" required />
 
                                     <label className="label">User Name</label>
-                                    <input type="text" name="userName" className="input w-full" placeholder="Your name" required />
+                                    <input defaultValue={user.displayName} type="text" name="userName" className="input w-full" placeholder="Your name" readOnly />
 
                                     <label className="label">User Email</label>
-                                    <input type="email" name="userEmail" className="input w-full" placeholder="Your email" required />
+                                    <input defaultValue={user.email} type="email" name="userEmail" className="input w-full" placeholder="Your email" readOnly />
                                 </div>
                             </div>
 

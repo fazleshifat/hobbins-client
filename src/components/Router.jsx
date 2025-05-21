@@ -9,6 +9,7 @@ import CreateGroup from "../pages/CreateGroup";
 import AllGroups from "../pages/AllGroups";
 import GroupDetails from "../pages/GroupDetails";
 import PrivateRoute from "../AuthProvider/PrivateRoute";
+import MyGroup from "./MyGroup";
 
 export const router = createBrowserRouter([
     {
@@ -33,8 +34,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myGroups',
+                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
                 element: <PrivateRoute>
-                    <DemoCards></DemoCards>
+                    <MyGroup></MyGroup>
                 </PrivateRoute>
             },
             ,
