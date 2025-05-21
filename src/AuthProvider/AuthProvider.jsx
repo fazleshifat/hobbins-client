@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContexts';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
 
+const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-
+    const [errorMessage, setErrorMessage] = useState('')
+    // setErrorMessage('')
 
 
     useEffect(() => {
         setUser(user)
+        setErrorMessage('')
         // console.log(user)
     }, [])
 
@@ -24,6 +27,10 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    // google sign in
+    const signInGoogle = () => {
+        return signInWithPopup(auth, provider)
+    }
 
     // to observe the authentic user
     useEffect(() => {
@@ -49,6 +56,9 @@ const AuthProvider = ({ children }) => {
         setUser,
         createUser,
         signInUser,
+        signInGoogle,
+        errorMessage,
+        setErrorMessage,
 
     }
 

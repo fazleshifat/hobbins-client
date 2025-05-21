@@ -17,12 +17,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:3000/groups'),
+                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
                 Component: Home
             },
             {
                 path: '/all-groups',
-                loader: () => fetch('http://localhost:3000/groups'),
+                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
                 Component: AllGroups
             },
             {
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
             ,
             {
                 path: '/group/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/group/${params.id}`),
+                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/group/${params.id}`),
                 Component: GroupDetails
             },
             {

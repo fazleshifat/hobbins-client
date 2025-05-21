@@ -6,7 +6,7 @@ import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 
-    const { createUser, setUser } = use(AuthContext);
+    const { createUser, setUser, errorMessage, setErrorMessage } = use(AuthContext);
 
     const navigate = useNavigate();
 
@@ -40,14 +40,21 @@ const SignUp = () => {
                 updateProfile(result.user, profile)
                     .then(() => {
                         // toast('✅ User updated');
+                        Swal.fire({
+                            // position: "top-end",
+                            icon: "success",
+                            title: "Registration successful!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                         navigate('/');
                     })
                     .catch(error => {
-                        console.log(error)
+                        setErrorMessage(error.code)
                     })
 
                 // save data in DB
-                fetch('http://localhost:3000/users', {
+                fetch('https://hobbins-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -69,7 +76,7 @@ const SignUp = () => {
                     })
             })
             .catch(error => {
-                console.log(error.message)
+                console.log(error.code)
             })
 
     }
@@ -82,15 +89,18 @@ const SignUp = () => {
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>
                             <label className="label">Name</label>
-                            <input type="text" name='name' className="input w-full" placeholder="Email" />
+                            <input type="text" name='name' className="input w-full" placeholder="Email" required />
                             <label className="label">Photo URL</label>
-                            <input type="text" name='photo' className="input w-full" placeholder="Email" />
+                            <input type="text" name='photo' className="input w-full" placeholder="Email" required />
                             <label className="label">Email</label>
-                            <input type="email" name='email' className="input w-full" placeholder="Email" />
+                            <input type="email" name='email' className="input w-full" placeholder="Email" required />
                             <label className="label">Password</label>
-                            <input type="password" name='password' className="input w-full" placeholder="Password" />
-                            <div>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
-                            <button className="btn btn-neutral mt-4">Sign Up</button>
+                            <input type="password" name='password' className="input w-full" placeholder="Password" required />
+                            <div className='mt-3'>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
+                            {
+                                errorMessage && <p className='text-red-500'>{errorMessage}</p>
+                            }
+                            <button className="btn btn-neutral w-full mt-4">Sign Up</button>
                         </form>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router';
 const AllGroups = () => {
 
     const groupsData = useLoaderData();
+    // console.log(groupsData)
 
 
     return (
