@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { Link, useLocation, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 // import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignIn = () => {
@@ -28,9 +29,18 @@ const SignIn = () => {
 
         // sign in user with firebase auth
         signInUser(email, password)
-            .then((userCredential) => {
-                console.log(userCredential.user);
-                setUser(userCredential.user);
+            .then((result) => {
+                // console.log(userCredential.user);
+                setUser(result.user);
+
+                Swal.fire({
+                    // position: "top-end",
+                    icon: "success",
+                    title: "Log in success!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
                 navigate(location?.state || '/');
 
             })

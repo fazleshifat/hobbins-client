@@ -87,9 +87,9 @@ const MyGroup = () => {
                                     {/* Buttons Section */}
                                     <td className="p-2 align-top">
                                         <div className="flex flex-col md:flex-row gap-1 md:justify-end">
-                                            <button className="btn btn-success btn-xs md:btn-sm">Submit</button>
-                                            <button className="btn btn-warning btn-xs md:btn-sm">Reset</button>
-                                            <button className="btn btn-error btn-xs md:btn-sm">Cancel</button>
+                                            <button className="btn text-white btn-success btn-xs md:btn-sm">Info</button>
+                                            <button className="btn text-white btn-warning btn-xs md:btn-sm">Update</button>
+                                            <button className="btn text-white btn-error btn-xs md:btn-sm">Delete</button>
                                         </div>
                                     </td>
                                 </tr>
