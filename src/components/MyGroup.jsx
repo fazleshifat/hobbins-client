@@ -2,14 +2,15 @@ import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { FaCalendarAlt, FaTag, FaUser } from 'react-icons/fa';
 import { useLoaderData } from 'react-router';
+import { MdAttachEmail } from "react-icons/md";
 
 const MyGroup = () => {
 
     const { user } = use(AuthContext);
 
     const groups = useLoaderData();
-    const [remainingGroup] = groups.filter(group => group.userEmail === user.email)
-    console.log(remainingGroup)
+    const remainingGroup = groups.filter(group => group.userEmail === user.email)
+    // console.log(remainingGroup)
 
     return (
         <div className="max-w-11/12 mx-auto p-4">
@@ -28,53 +29,74 @@ const MyGroup = () => {
                             <th className="p-4 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className='border-2'>
-                        <tr className="hover:bg-base-200">
-                            {/* Checkbox */}
-                            <td className="p-4">
-                                <p>1</p>
-                            </td>
+                    <tbody>
+                        {
+                            remainingGroup.map((myGroup, index) => (
 
-                            {/* Group Info */}
-                            <td className="p-4">
-                                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                                    {/* Image */}
-                                    <img src={remainingGroup?.image} alt="Group" className="w-24 h-24 rounded-md object-cover" />
+                                <tr key={myGroup._id} className="hover:bg-base-200">
+                                    {/* Index */}
+                                    <td className="p-2 align-top text-xs">
+                                        <p>{index + 1}</p>
+                                    </td>
 
-                                    <div className="space-y-1 flex items-center gap-14 ">
-                                        {/* Name */}
-                                        {/* <h2 className="text-xl font-bold">{group?.name}</h2> */}
-                                        <h2 className="text-xl font-bold">{remainingGroup?.name}</h2>
+                                    {/* Group Info Section */}
+                                    <td className="p-2 w-full">
+                                        <div className="flex flex-col sm:flex-row gap-2 sm:items-start">
+                                            {/* Image */}
+                                            <img
+                                                src={myGroup?.image}
+                                                alt="Group"
+                                                className="w-12 h-12 rounded object-cover"
+                                            />
 
-                                        {/* Host */}
-                                        <p className="flex items-center gap-2 text-sm">
-                                            <FaUser className="text-purple-500" />
-                                            {user?.displayName} ({user?.email})
-                                        </p>
+                                            {/* Group Info */}
+                                            <div className="flex-1">
+                                                {/* Group Name */}
+                                                <h2 className="text-sm font-semibold text-gray-700">{myGroup?.name}</h2>
 
-                                        {/* Category */}
-                                        <p className="flex items-center gap-2 text-sm">
-                                            <FaTag className="text-pink-500" />
-                                            {remainingGroup?.category}
-                                        </p>
+                                                {/* Info Items */}
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mt-1 text-xs text-gray-600">
+                                                    {/* Host Name */}
+                                                    <p className="flex items-center gap-1">
+                                                        <FaUser className="text-purple-500 text-xs" />
+                                                        {user?.displayName}
+                                                    </p>
 
-                                        {/* Start Date */}
-                                        <p className="flex items-center gap-2 text-sm">
-                                            <FaCalendarAlt className="text-blue-500" />
-                                            {remainingGroup?.startDate}
-                                            {/* 11/12/30 */}
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
+                                                    {/* Host Email */}
+                                                    <p className="flex items-center gap-1">
+                                                        <MdAttachEmail className="text-purple-500 text-xs" />
+                                                        {user?.email}
+                                                    </p>
 
-                            {/* Buttons */}
-                            <td className="p-4 flex flex-col md:items-center my-auto sm:flex-row justify-end gap-2">
-                                <button className="btn btn-success btn-sm sm:btn-md w-full sm:w-auto">Submit</button>
-                                <button className="btn btn-warning btn-sm sm:btn-md w-full sm:w-auto">Reset</button>
-                                <button className="btn btn-error btn-sm sm:btn-md w-full sm:w-auto">Cancel</button>
-                            </td>
-                        </tr>
+                                                    {/* Category */}
+                                                    <p className="flex items-center gap-1">
+                                                        <FaTag className="text-pink-500 text-xs" />
+                                                        {myGroup?.category}
+                                                    </p>
+
+                                                    {/* Start Date */}
+                                                    <p className="flex items-center gap-1">
+                                                        <FaCalendarAlt className="text-blue-500 text-xs" />
+                                                        {myGroup?.startDate}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    {/* Buttons Section */}
+                                    <td className="p-2 align-top">
+                                        <div className="flex flex-col md:flex-row gap-1 md:justify-end">
+                                            <button className="btn btn-success btn-xs md:btn-sm">Submit</button>
+                                            <button className="btn btn-warning btn-xs md:btn-sm">Reset</button>
+                                            <button className="btn btn-error btn-xs md:btn-sm">Cancel</button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
