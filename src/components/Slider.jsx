@@ -21,21 +21,18 @@ export default function Slider() {
                 centeredSlides={true}
                 slidesPerView={'auto'}
                 coverflowEffect={{
-                    rotate: 1,
-                    stretch: 10,
+                    rotate: 0,
+                    stretch: 0,
                     depth: 100,
-                    modifier: 10,
-                    slideShadows: true,
+                    modifier: 30,
+                    slideShadows: false,
                 }}
                 pagination={true}
                 modules={[EffectCoverflow, Pagination]}
                 className="mySwiper flex items-center"
             >
                 <SwiperSlide>
-                    <img src="https://i.ibb.co/Xf3003cR/photographer-preview.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.ibb.co/WpYmLfwc/skethcers.png" />
+                    <img src="/assets/photographer.png" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="/assets/booklovers.png" />
@@ -44,19 +41,19 @@ export default function Slider() {
                     <img src="/assets/fishing.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                    <img src="/assets/guitars.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                    <img src="/assets/videoGames.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                    <img src="/assets/cooking.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                    <img src="/assets/coding.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                    <img src="/assets/skethcers.png" />
                 </SwiperSlide>
             </Swiper>
         </>

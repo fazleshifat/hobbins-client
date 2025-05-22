@@ -28,12 +28,10 @@ const Home = () => {
     }
 
     return (
-        <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-12 px-6 min-h-screen'>
+        <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-12 md:px-6 min-h-screen'>
             <Banner></Banner>
-            {/* <OngoingEvent></OngoingEvent> */}
             <OngoingEvent groupsData={groupsData}></OngoingEvent>
-            {/* <CountDown></CountDown> */}
-            {/* <Review></Review> */}
+            <ChatSection></ChatSection>
             <Faq></Faq>
         </div>
     );

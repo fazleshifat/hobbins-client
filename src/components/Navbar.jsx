@@ -38,7 +38,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar md:justify-between bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300  ">
+        <div className="navbar justify-between bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300  ">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">
@@ -61,23 +61,22 @@ const Navbar = () => {
                         hoBBins
                     </p>
                 </Link>
-                <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' />
+                {/* <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' /> */}
             </div>
 
-            <div className="flex items-center gap-2 w-full md:w-auto">
+            <div className="flex items-center gap-2 md:w-auto">
                 {/* Desktop Links */}
                 <ul className='menu menu-horizontal hidden md:flex items-center px-1 text-sm'>
                     {links}
                 </ul>
 
                 {/* Search */}
+                <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' />
                 <input
                     type="text"
                     placeholder="Search"
                     className="input hidden md:flex input-bordered input-sm md:w-30"
                 />
-                <HiMagnifyingGlass className='hidden md:flex cursor-pointer text-2xl text-gray-400' />
-
                 {/* Auth Buttons */}
                 {
                     !user ? (
@@ -99,11 +98,11 @@ const Navbar = () => {
                                 </div>
                                 <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
 
-                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 md:w-32 p-2 shadow text-sm mt-20">
+                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 md:w-auto p-2 shadow text-sm mt-20">
                                     <p className="text-center">{user.displayName}</p>
                                 </div>
                             </div>
-                            <button onClick={handleSignOut} className='hidden md:flex btn btn-accent btn-sm text-white ml-1'>Logout</button>
+                            <button onClick={handleSignOut} className='btn btn-accent btn-sm text-white ml-1'>Logout</button>
                         </>
                     )
                 }
