@@ -8,7 +8,7 @@ import OngoingEvent from '../components/OngoingEvent';
 const Home = () => {
 
     const groupsData = useLoaderData();
-    // console.log(groupsData)
+    console.log(groupsData)
 
     const [localLoading, setLocalLoading] = useState(true);
 
@@ -30,8 +30,8 @@ const Home = () => {
     return (
         <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-12 px-6 min-h-screen'>
             <Banner></Banner>
+            {/* <OngoingEvent></OngoingEvent> */}
             <OngoingEvent groupsData={groupsData}></OngoingEvent>
-            <ChatSection></ChatSection>
             {/* <CountDown></CountDown> */}
             {/* <Review></Review> */}
             <Faq></Faq>

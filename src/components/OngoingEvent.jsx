@@ -19,7 +19,7 @@ const OngoingEvent = () => {
         <>
             <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6">
                 <h2 className="text-4xl font-bold text-center text-indigo-800 mb-10">Join an Ongoing Group</h2>
-                <div className="grid gap-6 max-w-7xl mx-auto">
+                <div className="grid gap-6 max-w-11/12 mx-auto">
 
                     <div className="overflow-x-auto">
                         <table className="table">
