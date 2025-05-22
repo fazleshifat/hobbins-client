@@ -23,57 +23,56 @@ const SignUp = () => {
         // create user on firebase
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
-                setUser(result.user)
-
-                const userProfile = {
-                    email,
-                    ...rest,
-                    creationTime: result.user?.metadata?.creationTime,
-                    lastSignInTime: result.user?.metadata?.lastSignInTime,
-                }
 
                 const profile = {
                     displayName: name,
                     photoURL: photo
                 }
+
+
                 updateProfile(result.user, profile)
                     .then(() => {
-                        // toast('✅ User updated');
-                        Swal.fire({
-                            // position: "top-end",
-                            icon: "success",
-                            title: "Registration successful!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+
+                        setUser(result.user)
+                        console.log(result.user)
+
+                        const userProfile = {
+                            email,
+                            name,
+                            photo,
+                            ...rest,
+                            creationTime: result.user?.metadata?.creationTime,
+                            lastSignInTime: result.user?.metadata?.lastSignInTime,
+                        }
+
+                        // save data in DB
+                        fetch('https://hobbins-server.vercel.app/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(userProfile)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        // position: "top-end",
+                                        icon: "success",
+                                        title: "Account created successfully!",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                                console.log('user data after save at DB', data)
+                            })
+
                     })
                     .catch(error => {
-                        setErrorMessage(error.code)
-                    })
+                        setErrorMessage(error.message);
+                    });
 
-                // save data in DB
-                fetch('https://hobbins-server.vercel.app/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(userProfile)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
-                            Swal.fire({
-                                // position: "top-end",
-                                icon: "success",
-                                title: "Account created successfully!",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                        console.log('user data after save at DB', data)
-                    })
             })
             .catch(error => {
                 console.log(error.code)
@@ -89,9 +88,9 @@ const SignUp = () => {
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>
                             <label className="label">Name</label>
-                            <input type="text" name='name' className="input w-full" placeholder="Email" required />
+                            <input type="text" name='name' className="input w-full" placeholder="name" required />
                             <label className="label">Photo URL</label>
-                            <input type="text" name='photo' className="input w-full" placeholder="Email" required />
+                            <input type="text" name='photo' className="input w-full" placeholder="photo url" required />
                             <label className="label">Email</label>
                             <input type="email" name='email' className="input w-full" placeholder="Email" required />
                             <label className="label">Password</label>

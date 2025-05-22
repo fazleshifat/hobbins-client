@@ -1,14 +1,15 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
+import UpdateGroupInfo from './ModalUpdateGroupInfo';
 import { FaCalendarAlt, FaTag, FaUser } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
 import { MdAttachEmail } from "react-icons/md";
 import Swal from 'sweetalert2';
-import GroupActions from './GroupActions';
 
-const MyGroup = () => {
+const myGroup = () => {
 
     const { user, loading, setLoading } = use(AuthContext);
+    // const [myGroup, setmyGroup] = useState(null);
     const groups = useLoaderData();
 
     const myAllGroup = groups.filter(group => group.userEmail === user.email)
@@ -34,6 +35,12 @@ const MyGroup = () => {
     //     );
     // }
 
+    // const handleUpdateGroupInfo = (id) => {
+    //     // e.preventDefault();
+    //     console.log('update group is on going', id)
+    // }
+
+
     const handleDeleteGroup = (id) => {
         // console.log('group delete on going', id)
 
@@ -50,7 +57,7 @@ const MyGroup = () => {
             if (result.isConfirmed) {
 
                 // start deleting group delete
-                fetch(`http://localhost:3000/group/${id}`, {
+                fetch(`https://hobbins-server.vercel.app/groups/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -59,7 +66,7 @@ const MyGroup = () => {
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: 'Group been deleted.',
+                                text: 'Group deleted successfully',
                                 icon: "success"
                             });
 
@@ -69,7 +76,7 @@ const MyGroup = () => {
                     })
             }
             else {
-                console.log('delete cancel')
+                console.log('delete cancel', id)
             }
         });
     }
@@ -168,9 +175,22 @@ const MyGroup = () => {
 
                                     {/* Buttons Section */}
                                     <td>
+                                        <div className="flex flex-col md:flex-row gap-1 justify-end">
 
-                                        {/* all the actions button send to a different button.This component is separatly created specially for (Update button) to reduce code in one single file */}
-                                        <GroupActions></GroupActions>
+                                            <Link to={`/groups/${myGroup?._id}`} className="btn text-white btn-success w-10 md:w-fit btn-xs md:btn-sm">Info</Link>
+                                            <Link to={`/updateGroup/${myGroup._id}`} className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</Link>
+                                            <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
+
+                                            {/* all the actions button send to a different button.This component is separatly created specially for (Update button) to reduce code in one single file */}
+                                            {/* <UpdateGroupInfo groups={groups} id={myGroup?._id}></UpdateGroupInfo> */}
+
+                                            {/* <UpdateGroupInfo
+                                                id={myGroup.id}
+                                                myGroup={myGroup}>
+
+                                            </UpdateGroupInfo> */}
+
+                                        </div>
                                     </td>
                                 </tr>
 
@@ -188,4 +208,4 @@ const MyGroup = () => {
     );
 };
 
-export default MyGroup;
+export default myGroup;

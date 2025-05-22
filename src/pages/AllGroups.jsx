@@ -58,7 +58,7 @@ const AllGroups = () => {
                                 </div>
 
                                 <div className="card-actions justify-center mt-4">
-                                    <Link to={`/group/${group._id}`} className="btn btn-outline btn-primary btn-sm md:btn-md">See More</Link>
+                                    <Link to={`/groups/${group._id}`} className="btn btn-outline btn-primary btn-sm md:btn-md">See More</Link>
                                 </div>
                             </div>
                         </div>

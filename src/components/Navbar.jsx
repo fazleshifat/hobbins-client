@@ -29,9 +29,9 @@ const Navbar = () => {
     const links = (
         <>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/createGroup'>Create Groups</Link></li>
             <li><Link to='/all-groups'>All Groups</Link></li>
             <li><Link to='/myGroups'>My Groups</Link></li>
+            <li><Link to='/createGroup'>Create Groups</Link></li>
             <button onClick={handleSignOut} className='btn md:hidden btn-accent btn-sm text-white ml-1'>Logout</button>
         </>
     )

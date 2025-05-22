@@ -63,7 +63,7 @@ const GroupDetails = () => {
                             </div>
                         </div>
                         <div className="text-right">
-                            <button className="btn btn-accent w-full">Join Group</button>
+                            <button className="btn btn-accent w-full text-white">Join Group</button>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import AllGroups from "../pages/AllGroups";
 import GroupDetails from "../pages/GroupDetails";
 import PrivateRoute from "../AuthProvider/PrivateRoute";
 import MyGroup from "../pages/MyGroup";
+import UpdateGroup from "../pages/UpdateGroup";
 
 export const router = createBrowserRouter([
     {
@@ -39,10 +40,16 @@ export const router = createBrowserRouter([
                     <MyGroup></MyGroup>
                 </PrivateRoute>
             },
-            ,
             {
-                path: '/group/:id',
-                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/group/${params.id}`),
+                path: '/updateGroup/:id',
+                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+                element: <PrivateRoute>
+                    <UpdateGroup></UpdateGroup>
+                </PrivateRoute>
+            },
+            {
+                path: '/groups/:id',
+                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
                 element: <PrivateRoute>
                     <GroupDetails></GroupDetails>
                 </PrivateRoute>,
