@@ -18,8 +18,23 @@ const SignUp = () => {
         const { email, password, name, photo, ...rest } = Object.fromEntries(formData.entries());
 
 
-        // console.log(userProfile)
+        // Clear previous error
+        setErrorMessage('');
 
+        // Password validation checks
+
+        if (password.length < 6) {
+            setErrorMessage('Password must be at least 6 characters long.');
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            setErrorMessage('Password must include at least one uppercase letter.');
+            return;
+        }
+        if (!/[a-z]/.test(password)) {
+            setErrorMessage('Password must include at least one lowercase letter.');
+            return;
+        }
         // create user on firebase
         createUser(email, password)
             .then(result => {
@@ -94,7 +109,7 @@ const SignUp = () => {
                             <label className="label">Email</label>
                             <input type="email" name='email' className="input w-full" placeholder="Email" required />
                             <label className="label">Password</label>
-                            <input type="password" name='password' className="input w-full" placeholder="Password" required />
+                            <input type="password" name='password' className="input w-full" placeholder="Password" required onChange={() => setErrorMessage(null)}/>
                             <div className='mt-3'>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
                             {
                                 errorMessage && <p className='text-red-500'>{errorMessage}</p>

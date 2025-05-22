@@ -11,6 +11,7 @@ import GroupDetails from "../pages/GroupDetails";
 import PrivateRoute from "../AuthProvider/PrivateRoute";
 import MyGroup from "../pages/MyGroup";
 import UpdateGroup from "../pages/UpdateGroup";
+import OngoingEvent from "./OngoingEvent";
 
 export const router = createBrowserRouter([
     {

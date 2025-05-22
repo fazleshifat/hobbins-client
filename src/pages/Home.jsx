@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../components/Banner';
-import DemoCards from '../components/DemoCards';
 import Faq from '../components/Faq';
-import Chat from '../components/Chat';
-import AllGroups from './AllGroups';
 import { useLoaderData } from 'react-router';
+import ChatSection from '../components/ChatSection';
+import OngoingEvent from '../components/OngoingEvent';
 
 const Home = () => {
 
@@ -29,10 +28,10 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div className='bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-12 px-6 min-h-screen'>
             <Banner></Banner>
-            <AllGroups groupsData={groupsData}></AllGroups>
-            <Chat></Chat>
+            <OngoingEvent groupsData={groupsData}></OngoingEvent>
+            <ChatSection></ChatSection>
             {/* <CountDown></CountDown> */}
             {/* <Review></Review> */}
             <Faq></Faq>

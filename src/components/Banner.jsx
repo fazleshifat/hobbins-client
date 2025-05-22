@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthProvider/AuthContexts';
 const Banner = () => {
 
     return (
-        <div className='bg-base-200'>
+        <div className=''>
             <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto items-center">
 
                 <Slider></Slider>

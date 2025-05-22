@@ -38,7 +38,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar md:justify-between bg-base-100 shadow-sm px-4 py-2">
+        <div className="navbar md:justify-between bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300  ">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">

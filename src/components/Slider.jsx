@@ -21,10 +21,10 @@ export default function Slider() {
                 centeredSlides={true}
                 slidesPerView={'auto'}
                 coverflowEffect={{
-                    rotate: 10,
+                    rotate: 1,
                     stretch: 10,
                     depth: 100,
-                    modifier: 7,
+                    modifier: 10,
                     slideShadows: true,
                 }}
                 pagination={true}
@@ -32,16 +32,16 @@ export default function Slider() {
                 className="mySwiper flex items-center"
             >
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    <img src="https://i.ibb.co/Xf3003cR/photographer-preview.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    <img src="https://i.ibb.co/WpYmLfwc/skethcers.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    <img src="/assets/booklovers.png" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                    <img src="/assets/fishing.png" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
