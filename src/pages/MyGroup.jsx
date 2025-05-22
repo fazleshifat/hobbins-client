@@ -4,6 +4,7 @@ import { FaCalendarAlt, FaTag, FaUser } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
 import { MdAttachEmail } from "react-icons/md";
 import Swal from 'sweetalert2';
+import GroupActions from './GroupActions';
 
 const MyGroup = () => {
 
@@ -167,11 +168,9 @@ const MyGroup = () => {
 
                                     {/* Buttons Section */}
                                     <td>
-                                        <div className="flex flex-col md:flex-row gap-1 justify-end">
-                                            <button className="btn text-white btn-success w-10 md:w-fit btn-xs md:btn-sm">Info</button>
-                                            <button className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</button>
-                                            <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
-                                        </div>
+
+                                        {/* all the actions button send to a different button.This component is separatly created specially for (Update button) to reduce code in one single file */}
+                                        <GroupActions></GroupActions>
                                     </td>
                                 </tr>
 
