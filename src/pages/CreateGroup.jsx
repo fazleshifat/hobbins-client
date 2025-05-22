@@ -59,7 +59,7 @@ const CreateGroup = () => {
                         timer: 1500
                     });
 
-                    navigate('/');
+                    navigate('/all-groups');
                     form.reset();
                 }
             })

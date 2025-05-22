@@ -110,63 +110,67 @@ const MyGroup = () => {
                         {
                             remainingGroup.map((myGroup, index) => (
 
-                                <tr key={myGroup._id} className="hover:bg-base-200">
+                                <tr key={myGroup._id} className="bg-base-200">
                                     {/* Index */}
-                                    <td className="p-2 align-top text-xs">
-                                        <p>{index + 1}</p>
+                                    <td className="">
+                                        <p className='font-extrabold text-sm mx-auto text-center w-fit rounded-full'>{index + 1}</p>
                                     </td>
 
                                     {/* Group Info Section */}
                                     <td className="p-2 w-full">
-                                        <div className="flex flex-col sm:flex-row gap-2 sm:items-start">
+                                        <div className="flex items-center gap-2">
                                             {/* Image */}
                                             <img
                                                 src={myGroup?.image}
                                                 alt="Group"
-                                                className="w-12 h-12 rounded object-cover"
+                                                className="w-12 h-12 md:w-30 md:h-30 rounded object-cover"
                                             />
 
                                             {/* Group Info */}
                                             <div className="flex-1">
                                                 {/* Group Name */}
-                                                <h2 className="text-sm font-semibold text-gray-700">{myGroup?.name}</h2>
+                                                <h2 className="text-sm md:text-xl font-semibold text-gray-700">{myGroup?.name}</h2>
 
                                                 {/* Info Items */}
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mt-1 text-xs text-gray-600">
-                                                    {/* Host Name */}
-                                                    <p className="flex items-center gap-1">
-                                                        <FaUser className="text-purple-500 text-xs" />
-                                                        {user?.displayName}
-                                                    </p>
+                                                <div className="flex flex-col md:flex-row md:gap-11 text-xs md:text-lg text-gray-600">
+                                                    <div>
+                                                        {/* Host Name */}
+                                                        <p className="flex items-center gap-1">
+                                                            <FaUser className="text-purple-500 text-xs" />
+                                                            {user?.displayName}
+                                                        </p>
 
-                                                    {/* Host Email */}
-                                                    <p className="flex items-center gap-1">
-                                                        <MdAttachEmail className="text-purple-500 text-xs" />
-                                                        {user?.email}
-                                                    </p>
+                                                        {/* Host Email */}
+                                                        <p className="hidden md:flex items-center gap-1">
+                                                            <MdAttachEmail className="text-purple-500 text-xs" />
+                                                            {user?.email}
+                                                        </p>
+                                                    </div>
 
-                                                    {/* Category */}
-                                                    <p className="flex items-center gap-1">
-                                                        <FaTag className="text-pink-500 text-xs" />
-                                                        {myGroup?.category}
-                                                    </p>
+                                                    <div>
+                                                        {/* Category */}
+                                                        <p className="flex items-center gap-1">
+                                                            <FaTag className="text-pink-500 text-xs" />
+                                                            {myGroup?.category}
+                                                        </p>
 
-                                                    {/* Start Date */}
-                                                    <p className="flex items-center gap-1">
-                                                        <FaCalendarAlt className="text-blue-500 text-xs" />
-                                                        {myGroup?.startDate}
-                                                    </p>
+                                                        {/* Start Date */}
+                                                        <p className="flex items-center gap-1">
+                                                            <FaCalendarAlt className="text-blue-500 text-xs" />
+                                                            {myGroup?.startDate}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
 
                                     {/* Buttons Section */}
-                                    <td className="p-2 align-top">
-                                        <div className="flex flex-col md:flex-row gap-1 md:justify-end">
-                                            <button className="btn text-white btn-success btn-xs md:btn-sm">Info</button>
-                                            <button className="btn text-white btn-warning btn-xs md:btn-sm">Update</button>
-                                            <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white btn-error btn-xs md:btn-sm">Delete</button>
+                                    <td>
+                                        <div className="flex flex-col md:flex-row gap-1 justify-end">
+                                            <button className="btn text-white btn-success w-10 md:w-fit btn-xs md:btn-sm">Info</button>
+                                            <button className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</button>
+                                            <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
                                         </div>
                                     </td>
                                 </tr>
