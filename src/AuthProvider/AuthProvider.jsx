@@ -14,17 +14,6 @@ const AuthProvider = ({ children }) => {
     // setErrorMessage('')
 
 
-    // const location = useLocation();
-    // const navigate = useNavigate();
-
-
-    useEffect(() => {
-        setUser(user)
-        setErrorMessage('')
-        // console.log(user)
-    }, [])
-
-
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
@@ -44,16 +33,21 @@ const AuthProvider = ({ children }) => {
     // to observe the authentic user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
+
+            // if (user) {
+            //     setUser(user);
+            // } else {
+            //     setLoading(true);
+            //     setUser(null);
+            // }
+
             if (user) {
                 setUser(user);
-                console.log(user)
-                // console.log(user.displayName)
-                // console.log(user.email)
-
+                setLoading(false);
             } else {
                 setUser(null);
+                setLoading(false)
             }
-            setLoading(false);
         });
 
 

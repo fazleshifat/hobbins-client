@@ -9,7 +9,7 @@ import CreateGroup from "../pages/CreateGroup";
 import AllGroups from "../pages/AllGroups";
 import GroupDetails from "../pages/GroupDetails";
 import PrivateRoute from "../AuthProvider/PrivateRoute";
-import MyGroup from "./MyGroup";
+import MyGroup from "../pages/MyGroup";
 
 export const router = createBrowserRouter([
     {

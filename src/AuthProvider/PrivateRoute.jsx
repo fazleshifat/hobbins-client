@@ -4,7 +4,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router';
 
 const PrivateRoute = ({ children }) => {
 
-    const { user, loading } = use(AuthContext);
+    const { user, loading, setLoading } = use(AuthContext);
 
     // const navigate = useNavigate();
 
@@ -20,9 +20,7 @@ const PrivateRoute = ({ children }) => {
     }
 
     if (!user) {
-
-        // return <Navigate state={location.pathname} to='/SignIn'></Navigate>
-        return <Navigate to="/SignIn" state={location.pathname} replace />;
+        return <Navigate to="/SignIn" state={location.pathname} />;
     }
 
     return children;

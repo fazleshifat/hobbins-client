@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const SignIn = () => {
 
-    const { signInUser, setUser, signInGoogle, errorMessage, setErrorMessage } = use(AuthContext);
+    const { user, signInUser, setUser, signInGoogle, errorMessage, setErrorMessage } = use(AuthContext);
     // setErrorMessage('')
 
     // const [errorMessage, setErrorMessage] = useState(null);
@@ -16,6 +16,8 @@ const SignIn = () => {
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(location)
+
+
 
 
     const handleSignIn = (e) => {
@@ -41,6 +43,7 @@ const SignIn = () => {
                     timer: 1500
                 });
 
+                // setLoading(false)
                 navigate(location?.state || '/');
 
             })

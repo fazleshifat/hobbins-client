@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { data, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/AuthContexts';
@@ -7,6 +7,23 @@ const CreateGroup = () => {
 
     const { user, setLoading } = use(AuthContext);
     const navigate = useNavigate();
+
+    // const [localLoading, setLocalLoading] = useState(false)
+    // useEffect(() => {
+    //     if (groupsData) {
+    //         setLocalLoading(false);
+    //     }
+    // }, [groupsData]);
+
+
+    // if (localLoading) {
+    //     return (
+    //         <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
+    //             <span className="loading loading-circle text-black w-12"></span>
+    //         </div>
+    //     );
+    // }
+
     // console.log(user.email)
 
     const handleCreateGroup = (e) => {
@@ -85,7 +102,7 @@ const CreateGroup = () => {
                                     </select>
 
                                     <label className="label">Start Date</label>
-                                    <input type="date" name="startDate" className="input w-full" required />
+                                    <input type='date' name="startDate" className="input w-full" required />
 
                                     <label className="label">Max Members</label>
                                     <input type="number" name="maxMembers" className="input w-full" placeholder="Enter max members" required />
