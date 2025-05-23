@@ -16,31 +16,6 @@ const myGroup = () => {
     const [remainingGroup, setRemainingGroup] = useState(myAllGroup);
 
 
-    // const [localLoading, setLocalLoading] = useState(true);
-
-    // useEffect(() => {
-    //     if (groups) {
-    //         setLocalLoading(false);
-    //     }
-    // }, [groups]);
-
-
-    // // console.log(remainingGroup)
-
-    // if (localLoading) {
-    //     return (
-    //         <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
-    //             <span className="loading loading-circle text-black w-12"></span>
-    //         </div>
-    //     );
-    // }
-
-    // const handleUpdateGroupInfo = (id) => {
-    //     // e.preventDefault();
-    //     console.log('update group is on going', id)
-    // }
-
-
     const handleDeleteGroup = (id) => {
         // console.log('group delete on going', id)
 

@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { auth } from '../firebase/firebase.init';
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import ThemeController from './ThemeController';
 
 const Navbar = () => {
 
@@ -61,7 +62,7 @@ const Navbar = () => {
                         hoBBins
                     </p>
                 </Link>
-                {/* <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' /> */}
+                <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' />
             </div>
 
             <div className="flex items-center gap-2 md:w-auto">
@@ -70,13 +71,8 @@ const Navbar = () => {
                     {links}
                 </ul>
 
-                {/* Search */}
-                <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' />
-                <input
-                    type="text"
-                    placeholder="Search"
-                    className="input hidden md:flex input-bordered input-sm md:w-30"
-                />
+                {/* theme controller */}
+                <ThemeController></ThemeController>
                 {/* Auth Buttons */}
                 {
                     !user ? (

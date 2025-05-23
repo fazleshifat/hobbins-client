@@ -8,23 +8,7 @@ const CreateGroup = () => {
     const { user, setLoading } = use(AuthContext);
     const navigate = useNavigate();
 
-    // const [localLoading, setLocalLoading] = useState(false)
-    // useEffect(() => {
-    //     if (groupsData) {
-    //         setLocalLoading(false);
-    //     }
-    // }, [groupsData]);
-
-
-    // if (localLoading) {
-    //     return (
-    //         <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
-    //             <span className="loading loading-circle text-black w-12"></span>
-    //         </div>
-    //     );
-    // }
-
-    // console.log(user.email)
+ 
 
     const handleCreateGroup = (e) => {
         e.preventDefault();
@@ -67,7 +51,7 @@ const CreateGroup = () => {
                 console.error("Error creating group:", error);
             })
             .finally(() => {
-                setLoading(false);
+                // setLoading(false);
             });
     };
 

@@ -36,8 +36,9 @@ const AuthProvider = ({ children }) => {
 
             setUser(user)
             setLoading(false)
-            console.log(user)
 
+            // to always see the ser info at consol
+            console.log(user)
         });
 
 

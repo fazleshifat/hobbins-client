@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Fishing Contest",
+        "date": "June 15, 2025",
+        "description": "A competitive fishing event for anglers of all levels—prizes for biggest catch!",
+        "image": "https://i.ibb.co/rKy1MJgC/fishing.png"
+    },
+    {
+        "id": 2,
+        "title": "React Dev Conference",
+        "date": "July 9, 2025",
+        "description": "Dive deep into modern React patterns, performance, and tools with top developers.",
+        "image": "https://i.ibb.co/ycGJLzky/coding.png"
+    },
+    {
+        "id": 3,
+        "title": "UI/UX Design Meetup",
+        "date": "August 20, 2025",
+        "description": "A creative gathering to explore design thinking, prototyping, and user journey mapping.",
+        "image": "https://i.ibb.co/j98FFWR8/ui.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Gaming Competitions",
+        "date": "September 5, 2025",
+        "description": "Join us for high-stakes gaming tournaments across multiple genres and platforms.",
+        "image": "https://i.ibb.co/JRMLsYjL/video-Games.png"
+    },
+    {
+        "id": 5,
+        "title": "Biggest Concert Event",
+        "date": "October 12, 2025",
+        "description": "Meet your favorite creators, get autographs, and catch exclusive live panels.",
+        "image": "https://i.ibb.co/fdCCfQ1w/concert.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Sleepers Meetup",
+        "date": "November 8, 2025",
+        "description": "A cozy gathering for book-lovers to share reading recommendations and enjoy quiet company.",
+        "image": "https://i.ibb.co/qLbwHx1q/sleeping.jpg"
+    }
+]

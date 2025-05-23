@@ -4,26 +4,26 @@ import { Navigate, useLocation, useNavigate } from 'react-router';
 
 const PrivateRoute = ({ children }) => {
 
-    const { user, loading, setLoading } = use(AuthContext);
-
-    // const navigate = useNavigate();
+    const { user, loading } = use(AuthContext);
+    // console.log(user);
 
     const location = useLocation();
-    // console.log(location)
+    // console.log(location);
 
-    // if (loading) {
-    //     return (
-    //         <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
-    //             <span className="loading loading-circle text-black w-12"></span>
-    //         </div>
-    //     );
-    // }
-
-    if (!user) {
-        return <Navigate to="/SignIn" state={location.pathname} />;
+    if (loading) {
+        return (
+            <div className="h-screen w-full flex justify-center">
+                <span className="loading loading-infinity text-gray-500 w-14"></span>
+            </div>
+        );
     }
 
-    return children;
+
+    if (user) {
+        return children;
+    }
+
+    return <Navigate state={location.pathname} to='/login'></Navigate>
 };
 
 export default PrivateRoute;

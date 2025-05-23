@@ -12,7 +12,7 @@ const OngoingEvent = () => {
 
     const ongoingGroup = groups.filter(group => new Date(group.startDate) > today)
     const remainingOngoingGroup = ongoingGroup.slice(0, 6)
-    console.log(remainingOngoingGroup)
+    // console.log(remainingOngoingGroup)
 
 
     return (
