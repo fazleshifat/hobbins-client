@@ -5,6 +5,11 @@ import { useLoaderData } from 'react-router';
 const GroupDetails = () => {
 
     const groupData = useLoaderData();
+    // Run on every page load
+
+    // Jump instantly to top-left
+    window.scrollTo(0, 0);
+
 
     const {
         name,
@@ -18,9 +23,16 @@ const GroupDetails = () => {
         userEmail
     } = groupData
 
+
+    const today = new Date();
+    const deadLine = new Date(startDate);
+    console.log(today)
+    console.log(deadLine)
+
+
     return (
-        <div className='w-11/12 mx-auto md:h-screen my-7 md:my-20'>
-            <div className="max-w-5xl mx-auto bg-base-100 shadow-xl rounded-2xl overflow-hidden p-6 border border-primary">
+        <div className='w-11/12 mx-auto min-h-screen flex items-center'>
+            <div className="max-w-5xl mx-auto bg-base-300 shadow-lg rounded-2xl overflow-hidden p-6 border border-primary">
                 <div className="flex flex-col md:flex-row gap-6">
                     <div className="w-full md:w-1/2">
                         <img
@@ -63,7 +75,17 @@ const GroupDetails = () => {
                             </div>
                         </div>
                         <div className="text-right">
-                            <button className="btn btn-accent w-full text-white">Join Group</button>
+                            {
+                                today < deadLine ?
+
+
+                                    <button className="btn btn-accent w-full text-white">Join Group</button>
+                                    :
+                                    <>
+                                        <button className="btn btn-disabled btn-accent w-full text-gray-400">Joining Deadline is over</button>
+                                        <p className='text-sm text-center text-red-500'>keep in touch to know about further events of this Group!</p>
+                                    </>
+                            }
                         </div>
                     </div>
                 </div>

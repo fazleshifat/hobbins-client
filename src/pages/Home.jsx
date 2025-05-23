@@ -21,7 +21,7 @@ const Home = () => {
 
     if (localLoading) {
         return (
-            <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
+            <div className="h-screen bg-base-100 flex justify-center items-center text-xl font-semibold">
                 <span className="loading loading-circle text-black w-12"></span>
             </div>
         );

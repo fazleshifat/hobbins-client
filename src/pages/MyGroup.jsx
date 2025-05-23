@@ -118,7 +118,7 @@ const myGroup = () => {
                         {
                             remainingGroup.map((myGroup, index) => (
 
-                                <tr key={myGroup._id} className="bg-base-200">
+                                <tr key={myGroup._id} className="">
                                     {/* Index */}
                                     <td className="">
                                         <p className='font-extrabold text-sm mx-auto text-center w-fit rounded-full'>{index + 1}</p>

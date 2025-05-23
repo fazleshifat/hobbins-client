@@ -26,15 +26,15 @@ const OngoingEvent = () => {
                             {/* head */}
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th className='hidden md:flex'>
                                         <label>
                                             Serial
                                         </label>
                                     </th>
                                     <th>Group Name</th>
-                                    <th>Meet up Location</th>
-                                    <th>Status</th>
-                                    <th>Deadline</th>
+                                    <th className='hidden md:table-cell'>Meet up Location</th>
+                                    <th className='hidden md:table-cell'>Status</th>
+                                    <th className='hidden md:table-cell'>Deadline</th>
                                     <th>Join Group</th>
                                 </tr>
                             </thead>
@@ -43,7 +43,7 @@ const OngoingEvent = () => {
                                 {
                                     remainingOngoingGroup.map((group, index) => (
                                         <tr key={group._id}>
-                                            <th>
+                                            <th className='hidden md:table-cell'>
                                                 <label>
                                                     {index + 1}
                                                 </label>
@@ -63,13 +63,13 @@ const OngoingEvent = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td className='hidden md:table-cell'>
                                                 {group?.meetingLocation}
                                                 <br />
                                                 <span className="badge badge-ghost badge-sm">Total Member: {group?.maxMembers}</span>
                                             </td>
-                                            <td><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
-                                            <td>{new Date(group?.startDate).toLocaleDateString()}</td>
+                                            <td className='hidden md:table-cell'><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
+                                            <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
                                             <th>
                                                 <button className="btn btn-primary text-white">Join</button>
                                             </th>
@@ -78,7 +78,7 @@ const OngoingEvent = () => {
                                 }
                             </tbody>
                             {/* foot */}
-                            <tfoot>
+                            {/* <tfoot>
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
@@ -86,7 +86,7 @@ const OngoingEvent = () => {
                                     <th>Favorite Color</th>
                                     <th></th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> */}
                         </table>
                     </div>
 

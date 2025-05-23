@@ -12,6 +12,7 @@ import PrivateRoute from "../AuthProvider/PrivateRoute";
 import MyGroup from "../pages/MyGroup";
 import UpdateGroup from "../pages/UpdateGroup";
 import OngoingEvent from "./OngoingEvent";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -63,6 +64,12 @@ export const router = createBrowserRouter([
                 path: '/signUp',
                 Component: SignUp
             }
-        ]
+
+        ],
+
+    },
+    {
+        path: '*',
+        Component: ErrorPage
     }
 ]);

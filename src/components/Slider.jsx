@@ -35,6 +35,12 @@ export default function Slider() {
                     <img src="/assets/photographer.png" />
                 </SwiperSlide>
                 <SwiperSlide>
+                    <img src="/assets/coding.png" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src="/assets/skethcers.png" />
+                </SwiperSlide>
+                <SwiperSlide>
                     <img src="/assets/booklovers.png" />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -49,12 +55,7 @@ export default function Slider() {
                 <SwiperSlide>
                     <img src="/assets/cooking.png" />
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/coding.png" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="/assets/skethcers.png" />
-                </SwiperSlide>
+
             </Swiper>
         </>
     );

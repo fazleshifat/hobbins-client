@@ -93,7 +93,7 @@ const UpdateGroup = () => {
                         <label className="label mt-4">Description</label>
                         <textarea name="description" defaultValue={description} className="textarea w-full" placeholder="Group description" ></textarea>
 
-                        <button className="btn btn-neutral mt-6 w-full">Create Group</button>
+                        <button className="btn btn-primary mt-6 w-full">Update</button>
                     </form>
                 </div>
             </div>

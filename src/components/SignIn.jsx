@@ -33,6 +33,8 @@ const SignIn = () => {
         signInUser(email, password)
             .then((result) => {
                 // console.log(userCredential.user);
+                // setLoading(false)
+                navigate(location?.state || '/');
                 setUser(result.user);
 
                 Swal.fire({
@@ -43,8 +45,7 @@ const SignIn = () => {
                     timer: 1500
                 });
 
-                // setLoading(false)
-                navigate(location?.state || '/');
+
 
             })
             .catch((error) => {
@@ -66,7 +67,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="flex items-center bg-base-200 min-h-screen">
+        <div className="flex items-center  min-h-screen">
             <div className="flex-col w-md mx-auto">
                 <div className="bg-base-100 p-4 shadow-2xl">
                     <h1 className="text-5xl text-center font-bold">Sign In</h1>

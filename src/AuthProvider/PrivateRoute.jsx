@@ -11,13 +11,13 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
     // console.log(location)
 
-    if (loading) {
-        return (
-            <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
-                <span className="loading loading-circle text-black w-12"></span>
-            </div>
-        );
-    }
+    // if (loading) {
+    //     return (
+    //         <div className="h-screen bg-base-100  flex justify-center items-center text-xl font-semibold">
+    //             <span className="loading loading-circle text-black w-12"></span>
+    //         </div>
+    //     );
+    // }
 
     if (!user) {
         return <Navigate to="/SignIn" state={location.pathname} />;

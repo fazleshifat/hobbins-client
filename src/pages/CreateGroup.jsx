@@ -73,7 +73,7 @@ const CreateGroup = () => {
 
 
     return (
-        <div className="flex items-center bg-base-200 min-h-screen">
+        <div className="flex items-center  min-h-screen">
             <div className="w-full max-w-4xl mx-auto">
                 <div className="bg-base-100 p-6 shadow-2xl rounded-lg">
                     <h1 className="text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">

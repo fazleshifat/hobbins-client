@@ -8,7 +8,7 @@ const DemoCards = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 max-w-11/12 gap-6 mx-auto border-2'>
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -26,7 +26,7 @@ const DemoCards = () => {
 
 
 
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -44,7 +44,7 @@ const DemoCards = () => {
 
 
 
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -62,7 +62,7 @@ const DemoCards = () => {
 
 
 
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -79,7 +79,7 @@ const DemoCards = () => {
             </div>
 
 
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -96,7 +96,7 @@ const DemoCards = () => {
             </div>
 
 
-            <div className="card bg-base-200 shadow-lg">
+            <div className="card  shadow-lg">
                 <figure className="px-10 pt-10">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

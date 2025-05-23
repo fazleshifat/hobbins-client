@@ -32,7 +32,7 @@ const Navbar = () => {
             <li><Link to='/all-groups'>All Groups</Link></li>
             <li><Link to='/myGroups'>My Groups</Link></li>
             <li><Link to='/createGroup'>Create Groups</Link></li>
-            <button onClick={handleSignOut} className='btn md:hidden btn-accent btn-sm text-white ml-1'>Logout</button>
+
         </>
     )
 
@@ -42,8 +42,8 @@ const Navbar = () => {
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="cursor-pointer md:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div tabIndex={0} role="button" className="btn bg-gradient-to-r from-purple-300 via-pink-200 to-red-200 text-white font-semibold px-4 py-2 shadow-md hover:from-purple-300 hover:to-red-200 transition duration-300 cursor-pointer md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
