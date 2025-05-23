@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import { useLoaderData } from 'react-router';
 
 const OngoingEvent = () => {
@@ -17,68 +17,72 @@ const OngoingEvent = () => {
 
     return (
         <>
-            <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6">
-                <h2 className="text-4xl font-bold text-center text-indigo-800 mb-10">Join an Ongoing Group</h2>
-                <div className="grid gap-6 max-w-11/12 mx-auto">
+            <Fade cascade damping={0.5}>
 
-                    <div className="overflow-x-auto">
-                        <table className="table">
-                            {/* head */}
-                            <thead>
-                                <tr>
-                                    <th className='hidden md:flex'>
-                                        <label>
-                                            Serial
-                                        </label>
-                                    </th>
-                                    <th>Group Name</th>
-                                    <th className='hidden md:table-cell'>Meet up Location</th>
-                                    <th className='hidden md:table-cell'>Status</th>
-                                    <th className='hidden md:table-cell'>Deadline</th>
-                                    <th>Join Group</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* row 1 */}
-                                {
-                                    remainingOngoingGroup.map((group, index) => (
-                                        <tr key={group._id}>
-                                            <th className='hidden md:table-cell'>
-                                                <label>
-                                                    {index + 1}
-                                                </label>
-                                            </th>
-                                            <td>
-                                                <div className="flex items-center gap-3">
-                                                    <div className="avatar">
-                                                        <div className="mask mask-squircle h-12 w-12">
-                                                            <img
-                                                                src={group?.image}
-                                                                alt="Avatar Tailwind CSS Component" />
+                <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6">
+                    <Fade cascade damping={0.1}>
+                        <h2 className="text-4xl font-bold text-center text-indigo-800 mb-10">Join an Ongoing Group</h2>
+                    </Fade>
+                    <div className="grid gap-6 max-w-11/12 mx-auto">
+
+                        <div className="overflow-x-auto">
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+                                        <th className='hidden md:flex'>
+                                            <label>
+                                                Serial
+                                            </label>
+                                        </th>
+                                        <th>Group Name</th>
+                                        <th className='hidden md:table-cell'>Meet up Location</th>
+                                        <th className='hidden md:table-cell'>Status</th>
+                                        <th className='hidden md:table-cell'>Deadline</th>
+                                        <th>Join Group</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* row 1 */}
+                                    {
+                                        remainingOngoingGroup.map((group, index) => (
+                                            <tr key={group._id}>
+                                                <th className='hidden md:table-cell'>
+                                                    <label>
+                                                        {index + 1}
+                                                    </label>
+                                                </th>
+                                                <td>
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="avatar">
+                                                            <div className="mask mask-squircle h-12 w-12">
+                                                                <img
+                                                                    src={group?.image}
+                                                                    alt="Avatar Tailwind CSS Component" />
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold">{group?.name}</div>
+                                                            <div className="text-sm opacity-50">Host: {group?.userName}</div>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <div className="font-bold">{group?.name}</div>
-                                                        <div className="text-sm opacity-50">Host: {group?.userName}</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td className='hidden md:table-cell'>
-                                                {group?.meetingLocation}
-                                                <br />
-                                                <span className="badge badge-ghost badge-sm">Total Member: {group?.maxMembers}</span>
-                                            </td>
-                                            <td className='hidden md:table-cell'><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
-                                            <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
-                                            <th>
-                                                <button className="btn btn-primary text-white">Join</button>
-                                            </th>
-                                        </tr>
-                                    ))
-                                }
-                            </tbody>
-                            {/* foot */}
-                            {/* <tfoot>
+                                                </td>
+                                                <td className='hidden md:table-cell'>
+                                                    {group?.meetingLocation}
+                                                    <br />
+                                                    <span className="badge badge-ghost badge-sm">Total Member: {group?.maxMembers}</span>
+                                                </td>
+                                                <td className='hidden md:table-cell'><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
+                                                <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
+                                                <th>
+                                                    <button className="btn btn-primary text-white">Join</button>
+                                                </th>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                                {/* foot */}
+                                {/* <tfoot>
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
@@ -87,11 +91,12 @@ const OngoingEvent = () => {
                                     <th></th>
                                 </tr>
                             </tfoot> */}
-                        </table>
-                    </div>
+                            </table>
+                        </div>
 
-                </div>
-            </div >
+                    </div>
+                </div >
+            </Fade>
         </>
     );
 };

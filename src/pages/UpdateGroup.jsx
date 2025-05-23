@@ -19,7 +19,7 @@ const UpdateGroup = () => {
         console.log(updatedGroup)
 
         // send data to DB
-        fetch(`https://hobbins-server.vercel.app/groups/${_id}`, {
+        fetch(`http://localhost:3000/groups/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -41,9 +41,9 @@ const UpdateGroup = () => {
     }
 
     return (
-        <div className="w-full max-w-4xl mx-auto">
-            <div className="bg-base-100 p-6 shadow-2xl rounded-lg">
-                <h1 className="text-2xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+        <div className="w-full max-w-4xl min-h-screen flex p-2 md:p-0 items-center mx-auto">
+            <div className="bg-base-100 md:p-6 shadow-2xl rounded-lg">
+                <h1 className="text-2xl mt-8 md:text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
                     Update Group Information
                 </h1>
                 <div className="card-body">

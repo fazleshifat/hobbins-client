@@ -13,6 +13,8 @@ import MyGroup from "../pages/MyGroup";
 import UpdateGroup from "../pages/UpdateGroup";
 import OngoingEvent from "./OngoingEvent";
 import ErrorPage from "../pages/ErrorPage";
+import { Suspense } from "react";
+import Spinner from "./Spinner";
 
 export const router = createBrowserRouter([
     {
@@ -21,12 +23,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
+                loader: () => fetch('http://localhost:3000/groups'),
                 Component: Home
             },
             {
                 path: '/all-groups',
-                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
+                loader: () => fetch('http://localhost:3000/groups'),
                 Component: AllGroups
             },
             {
@@ -37,27 +39,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myGroups',
-                loader: () => fetch('https://hobbins-server.vercel.app/groups'),
+                loader: () => fetch('http://localhost:3000/groups'),
                 element: <PrivateRoute>
                     <MyGroup></MyGroup>
                 </PrivateRoute>
             },
             {
                 path: '/updateGroup/:id',
-                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`),
                 element: <PrivateRoute>
                     <UpdateGroup></UpdateGroup>
                 </PrivateRoute>
             },
             {
                 path: '/groups/:id',
-                loader: ({ params }) => fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`),
                 element: <PrivateRoute>
                     <GroupDetails></GroupDetails>
                 </PrivateRoute>,
             },
             {
-                path: '/SignIn',
+                path: '/signIn',
                 Component: SignIn
             },
             {
