@@ -54,7 +54,7 @@ const UpdateGroup = () => {
                                 <input type="text" defaultValue={name} name="name" className="input w-full" placeholder="Group name" />
 
                                 <label className="label">Category</label>
-                                <select name="category" className="input w-full" >
+                                <select defaultValue={category} name="category" className="input w-full" >
                                     <option value="">Select category</option>
                                     <option value="drawing">Drawing</option>
                                     <option value="painting">Painting</option>
@@ -66,6 +66,7 @@ const UpdateGroup = () => {
                                     <option value="cooking">Cooking</option>
                                     <option value="reading">Reading</option>
                                     <option value="writing">Writing</option>
+                                    <option value="others">others</option>
                                 </select>
 
                                 <label className="label">Start Date</label>

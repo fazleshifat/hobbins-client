@@ -4,3 +4,15 @@
 html {
     scroll-behavior: smooth;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base {
+    html {
+        @apply transition-colors duration-300
+    }
+
+    body {
+        @apply bg-white dark:bg-gray-900 text-gray-700 dark: text gray -200px;
+    }
+}

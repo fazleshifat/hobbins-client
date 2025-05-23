@@ -67,10 +67,10 @@ const SignIn = () => {
     }
 
     return (
-        <div className="flex items-center  min-h-screen">
+        <div className="flex items-center m-4 md:m-0 md:min-h-screen">
             <div className="flex-col w-md mx-auto">
-                <div className="bg-base-100 p-4 shadow-2xl">
-                    <h1 className="text-5xl text-center font-bold">Sign In</h1>
+                <div className="bg-base-100 p-4 shadow-2xl rounded-2xl">
+                    <h1 className="text-3xl md:text-5xl text-center font-bold">Sign In</h1>
                     <div className="card-body">
                         <form onSubmit={handleSignIn}>
                             <label className="label">Email</label>
@@ -78,7 +78,7 @@ const SignIn = () => {
                             <label className="label">Password</label>
                             <input type="password" name='password' className="input w-full" placeholder="Password" required onChange={() => setErrorMessage(null)} />
                             <div><a className="link link-hover">Forgot password?</a></div>
-                            <div>Don't have an account? <Link to='/SignUp' className='text-primary'>Sign Up</Link></div>
+                            <div className='mt-3'>Don't have an account? <Link to='/SignUp' className='text-primary'>Sign Up</Link></div>
 
                             {errorMessage && (
                                 <p className="text-md text-red-500 mt-2">{errorMessage}</p>

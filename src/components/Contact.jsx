@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Fade } from 'react-awesome-reveal';
+import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const Contact = () => {
+
+    const { user } = use(AuthContext);
+
     return (
-        <div className="min-h-screen overflow-hidden py-20 px-6 items-center">
+        <div className="overflow-hidden py-10 px-6 items-center">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
                 {/* Text & Contact Info */}
@@ -20,15 +24,15 @@ const Contact = () => {
                         <div className="space-y-4 text-gray-800">
                             <div className="flex items-center gap-4">
                                 <FaEnvelope className="text-purple-500 text-xl" />
-                                <span>hello@example.com</span>
+                                <span>{user?.email}</span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <FaPhoneAlt className="text-purple-500 text-xl" />
-                                <span>+123 456 7890</span>
+                                <span>+018 111 222 33</span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <FaMapMarkerAlt className="text-purple-500 text-xl" />
-                                <span>123 Main Street, Cityville</span>
+                                <span> 189 Mirsarai Chittagong, Bangladesh</span>
                             </div>
                         </div>
                     </div>

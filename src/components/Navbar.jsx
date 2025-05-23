@@ -39,7 +39,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar justify-between bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300  ">
+        <div className="navbar justify-between dark:bg-indigo-900  light:bg-gradient-to-br from-indigo-300 via-purple-200 to-pink-100">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">
@@ -57,7 +57,7 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Link to='/' className='flex items-center md:gap-1'>
-                    <img src="/assets/logo.png" className='w-8 md:w-10' alt="logo" />
+                    <img src="/assets/logo.png" className='w-8 md:w-10 animate-pulse' alt="logo" />
                     <p className="text-base md:text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                         hoBBins
                     </p>
@@ -78,8 +78,8 @@ const Navbar = () => {
                     !user ? (
                         <>
                             <div className='flex flex-row space-y-1 space-x-1 w-full md:w-auto'>
-                                <Link to='/SignIn' className='btn btn-primary w-6/12 btn-sm'>Sign In</Link>
-                                <Link to='/signUp' className='btn btn-secondary w-6/12 btn-sm'>Register</Link>
+                                <Link to='/SignIn' className='btn btn-primary w-fit btn-sm'>Sign In</Link>
+                                <Link to='/signUp' className='btn btn-secondary w-fit btn-sm'>Register</Link>
                             </div>
                         </>
                     ) : (

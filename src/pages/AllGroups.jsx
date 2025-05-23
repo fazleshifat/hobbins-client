@@ -28,28 +28,44 @@ const AllGroups = () => {
                         groupsData.map(group => (
                             <Fade cascade damping={0.5}>
 
-                                <div key={group._id} className="card bg-base-300 shadow-lg h-fit w-full max-w-md mx-auto md:max-w-lg">
-                                    <figure className="px-4 pt-6 md:px-10 md:pt-10">
-                                        <img
-                                            src={group.image}
-                                            alt="Group"
-                                            className="rounded-xl w-full h-40 object-cover md:h-60"
-                                        />
-                                    </figure>
-                                    <div className="card-body text-center space-y-2 px-4 md:px-6">
-                                        <h2 className="card-title mx-auto text-lg md:text-2xl">{group.name}</h2>
+                                <div
+                                    key={group._id}
+                                    className="relative bg-base-100 border border-transparent hover:border-purple-400 transition-all duration-300 rounded-3xl shadow-xl w-full max-w-md mx-auto md:max-w-lg overflow-hidden group"
+                                >
+                                    {/* Gradient border effect */}
+                                    <div className="absolute -inset-[2px] bg-gradient-to-br from-purple-400 via-pink-400 to-yellow-300 rounded-[inherit] z-0 opacity-30 group-hover:opacity-60 transition-opacity"></div>
 
-                                        <div className="grid grid-cols-1 gap-2 text-sm md:text-base">
-                                            <p><span className="font-semibold">Category:</span> {group.category}</p>
-                                            <p><span className="font-semibold">Start Date:</span> {group.startDate}</p>
-                                            <p><span className="font-semibold">Location:</span> {group.meetingLocation}</p>
+                                    {/* Actual content */}
+                                    <div className="relative z-10 p-4 md:p-6 space-y-4">
+                                        <figure className="rounded-2xl overflow-hidden">
+                                            <img
+                                                src={group.image}
+                                                alt="Group"
+                                                className="w-full h-40 md:h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                        </figure>
+
+                                        <h2 className="text-center text-xl md:text-2xl font-bold text-purple-700">
+                                            {group.name}
+                                        </h2>
+
+                                        <div className="grid grid-cols-1 gap-1 text-sm md:text-base text-gray-700 font-medium">
+                                            <p>📂 <span className="font-semibold">Category:</span> {group.category}</p>
+                                            <p>📅 <span className="font-semibold">Start Date:</span> {group.startDate}</p>
+                                            <p>📍 <span className="font-semibold">Location:</span> {group.meetingLocation}</p>
                                         </div>
 
-                                        <div className="card-actions justify-center mt-4">
-                                            <Link to={`/groups/${group._id}`} className="btn btn-outline btn-primary btn-sm md:btn-md">See More</Link>
+                                        <div className="text-center mt-4">
+                                            <Link
+                                                to={`/groups/${group._id}`}
+                                                className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+                                            >
+                                                See More
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
+
                             </Fade>
 
                         ))

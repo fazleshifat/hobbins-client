@@ -2,7 +2,7 @@ import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 
 const ChatCard = ({ name, time, message, img, position }) => (
-    <div className={`chat ${position} bg-white/30 backdrop-blur-md rounded-2xl p-4  border-2 border-transparent hover:border-pink-400 transition-all`}>
+    <div className={`chat ${position} bg-white/30 h-full backdrop-blur-md rounded-2xl p-4  border-2 border-transparent hover:border-pink-400 transition-all`}>
         <div className="chat-image avatar">
             <div className="w-10 rounded-full">
                 <img src={img} alt={name} />

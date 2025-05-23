@@ -14,7 +14,7 @@ const Footer = () => {
                 <p>Copyright © 2027 - All right reserved</p>
             </aside>
             <nav>
-                <div className="grid grid-flow-col gap-4">
+                <div className="flex flex-wrap gap-4">
                     <Link className="hover:underline">Home</Link>
                     <Link className="hover:underline">Events</Link>
                     <Link className="hover:underline">Reviews</Link>

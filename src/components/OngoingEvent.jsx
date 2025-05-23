@@ -76,7 +76,8 @@ const OngoingEvent = () => {
                                                 <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
                                                 <th className='flex flex-col md:flex-row gap-1'>
                                                     <Link to={`/groups/${group?._id}`} className="btn btn-primary text-white">Info</Link>
-                                                    <button className="btn bg-green-400 text-white">Join</button>
+                                                    <Link to={`/groups/${group?._id}`} className="btn bg-green-500 text-white">Join</Link>
+                                                    
                                                 </th>
                                             </tr>
                                         ))

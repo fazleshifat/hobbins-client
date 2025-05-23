@@ -75,8 +75,8 @@ const myGroup = () => {
                                     remainingGroup.length === 0 ?
                                         <>
                                             <th className='text-center py-7'>
-                                                <h1 className='text-xl text-gray-300'>you haven't created any group yet!</h1>
-                                                <p className='text-sm underline'><Link to='/createGroup'>Create new group</Link></p>
+                                                <h1 className='md:text-xl text-gray-300'>you haven't created any group yet!</h1>
+                                                <p className='text-sm underline'><Link to='/createGroup' className='btn my-4'>Create new group</Link></p>
                                             </th>
                                         </>
                                         : <>

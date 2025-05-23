@@ -104,10 +104,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className="flex items-center  min-h-screen">
+        <div className="flex items-center m-4 md:m-0 md:min-h-screen">
             <div className="flex-col w-lg mx-auto">
-                <div className="bg-base-100 p-4 shadow-2xl">
-                    <h1 className="text-5xl text-center font-bold">Sign up now!</h1>
+                <div className="bg-base-100 p-4 shadow-2xl rounded-3xl">
+                    <h1 className="text-3xl md:text-5xl text-center font-bold">Sign up now!</h1>
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>
                             <label className="label">Name</label>

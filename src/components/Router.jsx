@@ -13,6 +13,7 @@ import ErrorPage from "../pages/ErrorPage";
 import UpcomingEvents from "./UpcomingEvents";
 import Review from "./Review";
 import AboutUs from "./AboutUs";
+import EventDetails from "./EventDetails";
 
 export const router = createBrowserRouter([
     {
@@ -69,12 +70,10 @@ export const router = createBrowserRouter([
         ],
 
     }
-    ,
-    {
-        path: '/reviews',
-        Component: Review
-    }
-    ,
+    , {
+        path: '/eventDetails',
+        Component: EventDetails
+    },
     {
         path: '*',
         Component: ErrorPage
