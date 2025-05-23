@@ -8,6 +8,9 @@ import UpcomingEvents from '../components/UpcomingEvents';
 import ReactReveal from '../components/ReactReveal';
 import { Fade } from 'react-awesome-reveal';
 import Spinner from '../components/Spinner';
+import AboutUs from '../components/AboutUs';
+import Review from '../components/Review';
+import Contact from '../components/Contact';
 
 const Home = () => {
 
@@ -20,6 +23,7 @@ const Home = () => {
     if (Navigation.state === "loading") {
         return <Spinner />;
     }
+    window.scrollTo(0, 0);
 
 
     return (
@@ -30,7 +34,9 @@ const Home = () => {
                 <OngoingEvent groupsData={groupsData}></OngoingEvent>
                 <UpcomingEvents></UpcomingEvents>
                 <ChatSection></ChatSection>
-                <Faq></Faq>
+                <AboutUs></AboutUs>
+                <Review></Review>
+                <Contact></Contact>
             </div>
         </Fade>
 

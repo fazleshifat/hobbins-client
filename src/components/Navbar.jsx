@@ -29,10 +29,10 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/all-groups'>All Groups</Link></li>
-            <li><Link to='/myGroups'>My Groups</Link></li>
-            <li><Link to='/createGroup'>Create Groups</Link></li>
+            <li><Link to='/' className='font-bold hover:underline hover:text-indigo-600'>Home</Link></li>
+            <li><Link to='/all-groups' className='font-bold hover:underline hover:text-indigo-600'>All Groups</Link></li>
+            <li><Link to='/myGroups' className='font-bold hover:underline hover:text-indigo-600'>My Groups</Link></li>
+            <li><Link to='/createGroup' className='font-bold hover:underline hover:text-indigo-600'>Create Groups</Link></li>
 
         </>
     )
@@ -62,12 +62,12 @@ const Navbar = () => {
                         hoBBins
                     </p>
                 </Link>
-                <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' />
+                {/* <HiMagnifyingGlass className='md:hidden cursor-pointer text-2xl text-gray-400' /> */}
             </div>
 
             <div className="flex items-center gap-2 md:w-auto">
                 {/* Desktop Links */}
-                <ul className='menu menu-horizontal hidden md:flex items-center px-1 text-sm'>
+                <ul className='space-x-8 menu-horizontal hidden md:flex items-center px-1 text-sm'>
                     {links}
                 </ul>
 

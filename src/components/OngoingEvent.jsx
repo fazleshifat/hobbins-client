@@ -1,5 +1,5 @@
 import { Fade } from 'react-awesome-reveal';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const OngoingEvent = () => {
 
@@ -74,8 +74,9 @@ const OngoingEvent = () => {
                                                 </td>
                                                 <td className='hidden md:table-cell'><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
                                                 <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
-                                                <th>
-                                                    <button className="btn btn-primary text-white">Join</button>
+                                                <th className='flex flex-col md:flex-row gap-1'>
+                                                    <Link to={`/groups/${group?._id}`} className="btn btn-primary text-white">Info</Link>
+                                                    <button className="btn bg-green-400 text-white">Join</button>
                                                 </th>
                                             </tr>
                                         ))

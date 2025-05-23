@@ -69,7 +69,7 @@ const SignUp = () => {
                         }
 
                         // save data in DB
-                        fetch('http://localhost:3000/users', {
+                        fetch('https://hobbins-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

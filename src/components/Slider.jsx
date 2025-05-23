@@ -15,6 +15,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 export default function Slider() {
     return (
         <>
+
             <Swiper
                 effect={'coverflow'}
                 grabCursor={true}

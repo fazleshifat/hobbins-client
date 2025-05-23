@@ -2,7 +2,7 @@ import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 
 const ChatCard = ({ name, time, message, img, position }) => (
-    <div className={`chat ${position} bg-white/30 backdrop-blur-md rounded-2xl p-4 shadow-lg border-2 border-transparent hover:border-pink-400 transition-all`}>
+    <div className={`chat ${position} bg-white/30 backdrop-blur-md rounded-2xl p-4  border-2 border-transparent hover:border-pink-400 transition-all`}>
         <div className="chat-image avatar">
             <div className="w-10 rounded-full">
                 <img src={img} alt={name} />
@@ -20,12 +20,12 @@ const ChatCard = ({ name, time, message, img, position }) => (
 const ChatSection = () => {
     return (
         <Fade cascade damping={0.6}>
-            <div className="w-full py-12 px-4 md:px-12">
+            <div className="py-12 px-4 md:px-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-violet-500 text-transparent bg-clip-text">
                     💬 Hobbyist Chat Rooms
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="bg-gradient-to-br from-rose-100 via-fuchsia-100 to-indigo-100 p-1 rounded-2xl">
                         <ChatCard
                             name="Zara 🎨"
