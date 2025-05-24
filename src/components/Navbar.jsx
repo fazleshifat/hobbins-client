@@ -40,7 +40,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar justify-between dark:bg-indigo-600 light:bg-gradient-to-br from-indigo-300 via-purple-200 to-pink-100">
+        <div className="navbar justify-between dark:border-b-0 border-b-2 border-indigo-300 dark:bg-none dark:bg-indigo-800 bg-gradient-to-l from-indigo-200 via-purple-200 to-pink-200">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">

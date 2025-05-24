@@ -25,14 +25,15 @@ const AllGroups = () => {
 
                     {
                         groupsData.map(group => (
-                            <Fade cascade damping={0.5}>
 
-                                <div
-                                    key={group._id}
-                                    className="relative bg-base-100 border border-transparent hover:border-purple-400 transition-all duration-300 rounded-3xl shadow-xl w-full max-w-md mx-auto md:max-w-lg overflow-hidden group"
-                                >
+
+                            <div
+                                key={group._id}
+                                className="relative bg-base-300 border border-transparent hover:border-purple-400 transition-all duration-300 rounded-3xl shadow-xl w-full max-w-md mx-auto md:max-w-lg overflow-hidden group"
+                            >
+                                <Fade cascade damping={0.5}>
                                     {/* Gradient border effect */}
-                                    <div className="absolute -inset-[2px] bg-gradient-to-br from-purple-400 via-pink-400 to-yellow-300 rounded-[inherit] z-0 opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                                    <div className="absolute -inset-[2px] bg-gradient-to-br from-indigo-600 via-pink-400 to-indigo-300 rounded-[inherit] z-0 opacity-30 group-hover:opacity-60 transition-opacity"></div>
 
                                     {/* Actual content */}
                                     <div className="relative z-10 p-4 md:p-6 space-y-4">
@@ -44,11 +45,11 @@ const AllGroups = () => {
                                             />
                                         </figure>
 
-                                        <h2 className="text-center text-xl md:text-2xl font-bold text-purple-700">
+                                        <h2 className="text-center text-xl md:text-2xl font-bold dark:text-indigo-100 text-indigo-700">
                                             {group.name}
                                         </h2>
 
-                                        <div className="grid grid-cols-1 gap-1 text-sm md:text-base text-gray-700 font-medium">
+                                        <div className="grid grid-cols-1 gap-1 text-sm md:text-base dark:text-gray-400 font-medium">
                                             <p>📂 <span className="font-semibold">Category:</span> {group.category}</p>
                                             <p>📅 <span className="font-semibold">Start Date:</span> {group.startDate}</p>
                                             <p>📍 <span className="font-semibold">Location:</span> {group.meetingLocation}</p>
@@ -63,9 +64,9 @@ const AllGroups = () => {
                                             </Link>
                                         </div>
                                     </div>
-                                </div>
+                                </Fade>
+                            </div>
 
-                            </Fade>
 
                         ))
                     }

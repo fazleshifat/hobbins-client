@@ -1,10 +1,11 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { FaCalendarAlt, FaTag, FaUser } from 'react-icons/fa';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigation } from 'react-router';
 import { MdAttachEmail } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { Fade } from 'react-awesome-reveal';
+import Spinner from '../components/Spinner';
 
 const myGroup = () => {
 
@@ -14,6 +15,13 @@ const myGroup = () => {
 
     const myAllGroup = groups.filter(group => group.userEmail === user.email)
     const [remainingGroup, setRemainingGroup] = useState(myAllGroup);
+
+
+    const Navigation = useNavigation()
+
+    if (Navigation.state === "loading") {
+        return <Spinner />;
+    }
 
 
     const handleDeleteGroup = (id) => {
@@ -49,7 +57,7 @@ const myGroup = () => {
                     })
             }
             else {
-               
+
             }
         });
     }
@@ -65,7 +73,7 @@ const myGroup = () => {
                 </h1>
 
                 {/* Table Layout */}
-                <div className="overflow-x-auto bg-base-100 rounded-lg shadow-lg">
+                <div className="overflow-x-auto dark:bg-indigo-900 bg-base-100 rounded-lg shadow-lg">
                     <table className="table w-full">
                         <thead>
                             <tr className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
@@ -96,7 +104,7 @@ const myGroup = () => {
 
                                     <tr key={myGroup._id} className="">
                                         {/* Index */}
-                                        <td className="">
+                                        <td className="dark:text-gray-400 ">
                                             <p className='font-extrabold text-sm mx-auto text-center w-fit rounded-full'>{index + 1}</p>
                                         </td>
 
@@ -113,10 +121,10 @@ const myGroup = () => {
                                                 {/* Group Info */}
                                                 <div className="flex-1">
                                                     {/* Group Name */}
-                                                    <h2 className="text-sm md:text-xl font-semibold text-gray-700">{myGroup?.name}</h2>
+                                                    <h2 className="text-sm md:text-xl font-semibold dark:text-gray-300 text-gray-700">{myGroup?.name}</h2>
 
                                                     {/* Info Items */}
-                                                    <div className="flex flex-col md:flex-row md:gap-11 text-xs md:text-lg text-gray-600">
+                                                    <div className="flex flex-col md:flex-row md:gap-11 text-xs md:text-lg dark:text-gray-300 text-gray-600">
                                                         <div>
                                                             {/* Host Name */}
                                                             <p className="flex items-center gap-1">

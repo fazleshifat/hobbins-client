@@ -19,7 +19,7 @@ const OngoingEvent = () => {
         <>
             <Fade cascade damping={0.5}>
 
-                <div className="min-h-screen dark:bg-gray-800 light:bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6 rounded-3xl my-8">
+                <div className="dark:bg-none dark:bg-gray-800 bg-gradient-to-br from-indigo-purple-200 to-indigo-200 py-10 px-6 rounded-3xl my-8">
                     <Fade cascade damping={0.1}>
                         <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-10">Join an Ongoing Group</h2>
                     </Fade>

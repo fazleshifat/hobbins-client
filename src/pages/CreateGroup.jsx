@@ -1,15 +1,20 @@
 import React, { use, useEffect, useState } from 'react';
-import { data, useNavigate } from 'react-router';
+import { data, useNavigate, useNavigation } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { Fade } from 'react-awesome-reveal';
+import Spinner from '../components/Spinner';
 
 const CreateGroup = () => {
 
     const { user, setLoading } = use(AuthContext);
     const navigate = useNavigate();
 
+    const Navigation = useNavigation()
 
+    if (Navigation.state === "loading") {
+        return <Spinner />;
+    }
 
     const handleCreateGroup = (e) => {
         e.preventDefault();
@@ -55,13 +60,13 @@ const CreateGroup = () => {
     return (
         <Fade cascade damping={0.5}>
             <div className="flex items-center  min-h-screen p-2">
-                <div className="w-full max-w-4xl mx-auto">
-                    <div className="bg-base-100 md:p-6 shadow-2xl rounded-lg">
+                <div className="w-full max-w-4xl mx-auto ">
+                    <div className="bg-base-100 md:p-6 shadow-2xl rounded-3xl dark:border border-indigo-400">
                         <h1 className="text-2xl pt-3 md:text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
                             Create a New Group
                         </h1>
                         <div className="card-body">
-                            <form onSubmit={handleCreateGroup}>
+                            <form onSubmit={handleCreateGroup} className='dark:text-white'>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="label">Group Name</label>

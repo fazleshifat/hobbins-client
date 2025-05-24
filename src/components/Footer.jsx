@@ -1,28 +1,32 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-gradient-to-r from-purple-200 via-pink-300 to-yellow-100 text-black p-10">
-            <aside>
-                <img src="/assets/logo.png" className='w-20' alt="logo" />
-                <p className="font-bold">
-                    hobbins
-                    <br />
-                    Providing peace since 2020
-                </p>
-                <p>Copyright © 2027 - All right reserved</p>
-            </aside>
-            <nav>
-                <div className="flex flex-wrap gap-4">
-                    <Link className="hover:underline">Home</Link>
-                    <Link className="hover:underline">Events</Link>
-                    <Link className="hover:underline">Reviews</Link>
-                    <Link className="hover:underline">About Us</Link>
-                    <Link className="hover:underline">Contact</Link>
-                </div>
-            </nav>
-        </footer>
+        <Fade cascade damping={0.5}>
+
+            <footer className="footer footer-horizontal footer-center dark:bg-none dark:border border-t-indigo-500  dark:bg-till-900 bg-gradient-to-b from-purple-100 via-indigo-100 to-indigo-200 text-black p-10">
+                <aside className='dark:text-gray-400'>
+                    <img src="/assets/logo.png" className='w-20' alt="logo" />
+                    <p className="font-bold">
+                        hobbins
+                        <br />
+                        Providing peace since 2020
+                    </p>
+                    <p>Copyright © 2027 - All right reserved</p>
+                </aside>
+                <nav>
+                    <div className="flex flex-wrap gap-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+                        <Link className="hover:underline">Home</Link>
+                        <Link className="hover:underline">Events</Link>
+                        <Link className="hover:underline">Reviews</Link>
+                        <Link className="hover:underline">About Us</Link>
+                        <Link className="hover:underline">Contact</Link>
+                    </div>
+                </nav>
+            </footer>
+        </Fade>
     );
 };
 

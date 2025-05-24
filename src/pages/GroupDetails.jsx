@@ -54,7 +54,7 @@ const GroupDetails = () => {
                                 <h2 className="text-xl md:text-3xl font-bold text-primary mb-2">{name}</h2>
                                 <p className="text-base text-gray-500 mb-4">{description}</p>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-800">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm dark:text-gray-400 text-gray-800">
                                     <div className="flex items-center gap-2">
                                         <FaTag className="text-primary" />
                                         <span className="font-semibold">Category:</span> {category}
@@ -98,7 +98,7 @@ const GroupDetails = () => {
                                                     </button>
                                                     <button
                                                         onClick={handleJoin}
-                                                        className="btn w-5/12 py-2 btn-outline rounded-full font-semibold"
+                                                        className="btn w-5/12 py-2 dark:btn-accent light:btn-outline rounded-full font-semibold"
                                                     >
                                                         Cancel Join
                                                     </button>

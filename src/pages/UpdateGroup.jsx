@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Fade } from 'react-awesome-reveal';
 
 const UpdateGroup = () => {
 
@@ -40,64 +41,67 @@ const UpdateGroup = () => {
     }
 
     return (
-        <div className="w-full max-w-4xl min-h-screen flex p-2 md:p-0 items-center mx-auto">
-            <div className="bg-base-100 md:p-6 shadow-2xl rounded-lg">
-                <h1 className="text-2xl mt-8 md:text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-                    Update Group Information
-                </h1>
-                <div className="card-body">
-                    <form onSubmit={handleUpdateGroup}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="label">Group Name</label>
-                                <input type="text" defaultValue={name} name="name" className="input w-full" placeholder="Group name" />
+        <Fade cascade damping={0.5}>
 
-                                <label className="label">Category</label>
-                                <select defaultValue={category} name="category" className="input w-full" >
-                                    <option value="">Select category</option>
-                                    <option value="drawing">Drawing</option>
-                                    <option value="painting">Painting</option>
-                                    <option value="singing">Singing</option>
-                                    <option value="photography">Photography</option>
-                                    <option value="video gaming">Video Gaming</option>
-                                    <option value="fishing">Fishing</option>
-                                    <option value="running">Running</option>
-                                    <option value="cooking">Cooking</option>
-                                    <option value="reading">Reading</option>
-                                    <option value="writing">Writing</option>
-                                    <option value="others">others</option>
-                                </select>
+            <div className="w-full max-w-4xl min-h-screen flex p-2 md:p-0 items-center mx-auto">
+                <div className="dark:border-2 border-indigo-600 bg-base-100 md:p-6 shadow-2xl rounded-2xl">
+                    <h1 className="text-2xl mt-8 md:text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+                        Update Group Information
+                    </h1>
+                    <div className="card-body">
+                        <form onSubmit={handleUpdateGroup} className='dark:text-white'>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="label">Group Name</label>
+                                    <input type="text" defaultValue={name} name="name" className="input w-full" placeholder="Group name" />
 
-                                <label className="label">Start Date</label>
-                                <input type='date' defaultValue={startDate} name="startDate" className="input w-full" />
+                                    <label className="label">Category</label>
+                                    <select defaultValue={category} name="category" className="input w-full" >
+                                        <option value="">Select category</option>
+                                        <option value="drawing">Drawing</option>
+                                        <option value="painting">Painting</option>
+                                        <option value="singing">Singing</option>
+                                        <option value="photography">Photography</option>
+                                        <option value="video gaming">Video Gaming</option>
+                                        <option value="fishing">Fishing</option>
+                                        <option value="running">Running</option>
+                                        <option value="cooking">Cooking</option>
+                                        <option value="reading">Reading</option>
+                                        <option value="writing">Writing</option>
+                                        <option value="others">others</option>
+                                    </select>
 
-                                <label className="label">Max Members</label>
-                                <input type="number" defaultValue={maxMembers} name="maxMembers" className="input w-full" placeholder="Enter max members" />
+                                    <label className="label">Start Date</label>
+                                    <input type='date' defaultValue={startDate} name="startDate" className="input w-full" />
+
+                                    <label className="label">Max Members</label>
+                                    <input type="number" defaultValue={maxMembers} name="maxMembers" className="input w-full" placeholder="Enter max members" />
+                                </div>
+
+                                <div>
+                                    <label className="label">Meeting Location</label>
+                                    <input type="text" defaultValue={meetingLocation} name="meetingLocation" className="input w-full" placeholder="Location" />
+
+                                    <label className="label">Image URL</label>
+                                    <input type="text" name="image" defaultValue={image} className="input w-full" placeholder="Image URL" />
+
+                                    <label className="label">User Name</label>
+                                    <input defaultValue={user?.displayName} type="text" name="userName" className="input w-full" placeholder="Your name" readOnly />
+
+                                    <label className="label">User Email</label>
+                                    <input defaultValue={user?.email} type="email" name="userEmail" className="input w-full" placeholder="Your email" readOnly />
+                                </div>
                             </div>
 
-                            <div>
-                                <label className="label">Meeting Location</label>
-                                <input type="text" defaultValue={meetingLocation} name="meetingLocation" className="input w-full" placeholder="Location" />
+                            <label className="label mt-4">Description</label>
+                            <textarea name="description" defaultValue={description} className="textarea w-full" placeholder="Group description" ></textarea>
 
-                                <label className="label">Image URL</label>
-                                <input type="text" name="image" defaultValue={image} className="input w-full" placeholder="Image URL" />
-
-                                <label className="label">User Name</label>
-                                <input defaultValue={user?.displayName} type="text" name="userName" className="input w-full" placeholder="Your name" readOnly />
-
-                                <label className="label">User Email</label>
-                                <input defaultValue={user?.email} type="email" name="userEmail" className="input w-full" placeholder="Your email" readOnly />
-                            </div>
-                        </div>
-
-                        <label className="label mt-4">Description</label>
-                        <textarea name="description" defaultValue={description} className="textarea w-full" placeholder="Group description" ></textarea>
-
-                        <button className="btn btn-primary mt-6 w-full">Update</button>
-                    </form>
+                            <button className="btn btn-primary mt-6 w-full">Update</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Fade>
     );
 };
 

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
+import { Fade } from 'react-awesome-reveal';
 
 const SignUp = () => {
 
@@ -102,30 +103,33 @@ const SignUp = () => {
     }
 
     return (
-        <div className="flex items-center m-4 md:m-0 md:min-h-screen">
-            <div className="flex-col w-lg mx-auto">
-                <div className="bg-base-100 p-4 shadow-2xl rounded-3xl">
-                    <h1 className="text-3xl md:text-5xl text-center font-bold">Sign up now!</h1>
-                    <div className="card-body">
-                        <form onSubmit={handleCreateUser}>
-                            <label className="label">Name</label>
-                            <input type="text" name='name' className="input w-full" placeholder="name" required />
-                            <label className="label">Photo URL</label>
-                            <input type="text" name='photo' className="input w-full" placeholder="photo url" required onChange={() => setErrorMessage(null)} />
-                            <label className="label">Email</label>
-                            <input type="email" name='email' className="input w-full" placeholder="Email" required />
-                            <label className="label">Password</label>
-                            <input type="password" name='password' className="input w-full" placeholder="Password" required onChange={() => setErrorMessage(null)} />
-                            <div className='mt-3'>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
-                            {
-                                errorMessage && <p className='text-red-500'>{errorMessage}</p>
-                            }
-                            <button className="btn btn-neutral w-full mt-4">Sign Up</button>
-                        </form>
+        <Fade cascade damping={0.5}>
+
+            <div className="flex items-center m-4 md:m-0 md:min-h-screen">
+                <div className="flex-col w-lg mx-auto">
+                    <div className="bg-base-100 p-4 shadow-2xl rounded-3xl dark:bg-gradient-to-br from-indigo-200 via-purple-100 to-pink-100">
+                        <h1 className="text-3xl md:text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Sign up now!</h1>
+                        <div className="card-body">
+                            <form onSubmit={handleCreateUser}>
+                                <label className="label">Name</label>
+                                <input type="text" name='name' className="input w-full dark:bg-white" placeholder="name" required />
+                                <label className="label">Photo URL</label>
+                                <input type="text" name='photo' className="input w-full dark:bg-white" placeholder="photo url" required onChange={() => setErrorMessage(null)} />
+                                <label className="label">Email</label>
+                                <input type="email" name='email' className="input w-full dark:bg-white" placeholder="Email" required />
+                                <label className="label">Password</label>
+                                <input type="password" name='password' className="input w-full dark:bg-white" placeholder="Password" required onChange={() => setErrorMessage(null)} />
+                                <div className='mt-3'>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
+                                {
+                                    errorMessage && <p className='text-red-500'>{errorMessage}</p>
+                                }
+                                <button className="btn btn-neutral w-full mt-4">Sign Up</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Fade>
     );
 };
 
