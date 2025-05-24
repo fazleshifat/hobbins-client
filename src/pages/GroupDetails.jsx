@@ -6,7 +6,6 @@ import { useLoaderData } from 'react-router';
 const GroupDetails = () => {
 
     const groupData = useLoaderData();
-    console.log(groupData)
 
     // Jump instantly to top-left
     window.scrollTo(0, 0);
@@ -27,8 +26,6 @@ const GroupDetails = () => {
 
     const today = new Date();
     const deadLine = new Date(startDate);
-    console.log(today)
-    console.log(deadLine)
 
     const [joined, setJoined] = useState(false);
 

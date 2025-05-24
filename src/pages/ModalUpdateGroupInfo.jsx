@@ -3,21 +3,13 @@ import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const ModalUpdateGroupInfo = ({ id, myGroup }) => {
 
-    // console.log(myGroup)
-    // console.log(id)
-    // console.log(groups)
+   
     const { user } = use(AuthContext);
 
-    // const myGroup = myGroup.find(group => group._id === id);
-    // const myGroup = groups.filter(group => console.log(group))
-    // const myGroup = initialmyGroup[0]
-    // console.log(myGroup)
-    // console.log(user)
-
+ 
 
     const handleUpdateGroupInfo = (e) => {
         e.preventDefault();
-        console.log('update group is on going', id)
     }
 
     return (

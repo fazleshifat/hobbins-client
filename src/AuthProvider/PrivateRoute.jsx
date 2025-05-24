@@ -1,20 +1,25 @@
 import React, { use } from 'react';
 import { AuthContext } from './AuthContexts';
-import { Navigate, useLocation, useNavigate } from 'react-router';
+import { Navigate, useLocation, useNavigate, useNavigation } from 'react-router';
+import Spinner from '../components/Spinner';
 
 const PrivateRoute = ({ children }) => {
 
     const { user, loading } = use(AuthContext);
-    // console.log(user);
 
     const location = useLocation();
-    // console.log(location);
+
+    // secondary loader 
+
+    // const Navigation = useNavigation()
+
+    // if (Navigation.state === "loading") {
+    //     return <Spinner />;
+    // }
 
     if (loading) {
         return (
-            <div className="h-screen w-full flex justify-center">
-                <span className="loading loading-infinity text-gray-500 w-14"></span>
-            </div>
+            <Spinner></Spinner>
         );
     }
 

@@ -7,10 +7,9 @@ const eventDataPromise = fetch('/upcomingevent.json').then(res => res.json());
 const UpcomingEvents = () => {
 
     const events = use(eventDataPromise);
-    console.log(events)
 
     return (
-        <div className="bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300 py-12 px-6 min-h-screen">
+        <div className="dark:bg-indigo-950 rounded-3xl light:bg-gradient-to-br from-indigo-100 via-purple-200 to-pink-300 py-12 px-6 min-h-screen">
             <Fade cascade damping={0.1}>
                 <h2 className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500  to-purple-300 mb-10">
                     Upcoming Events

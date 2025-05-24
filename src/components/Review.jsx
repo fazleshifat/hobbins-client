@@ -34,7 +34,7 @@ const reviews = [
 
 const Review = () => {
     return (
-        <div className="bg-gradient-to-b from-indigo-200 to-indigo-100 min-h-screen overflow-hidden py-20 px-6">
+        <div className="dark:bg-indigo-950 light:bg-gradient-to-b from-indigo-200 to-indigo-100 min-h-screen overflow-hidden rounded-3xl py-20 px-6">
             <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500 mb-16">
                 What Our Users Say
             </h2>

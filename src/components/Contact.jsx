@@ -17,11 +17,11 @@ const Contact = () => {
                         <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
                             Get in Touch
                         </h2>
-                        <p className="text-gray-700 mb-6 text-lg">
+                        <p className="text-gray-700 mb-6 text-lg dark:text-gray-300">
                             Have a question or want to collaborate? Reach out and let’s talk.
                         </p>
 
-                        <div className="space-y-4 text-gray-800">
+                        <div className="space-y-4 text-gray-800 dark:text-gray-300">
                             <div className="flex items-center gap-4">
                                 <FaEnvelope className="text-purple-500 text-xl" />
                                 <span>{user?.email}</span>

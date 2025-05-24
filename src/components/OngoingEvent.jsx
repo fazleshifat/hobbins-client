@@ -19,9 +19,9 @@ const OngoingEvent = () => {
         <>
             <Fade cascade damping={0.5}>
 
-                <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6">
+                <div className="min-h-screen dark:bg-gray-800 light:bg-gradient-to-br from-purple-200 to-indigo-200 py-10 px-6 rounded-3xl my-8">
                     <Fade cascade damping={0.1}>
-                        <h2 className="text-4xl font-bold text-center text-indigo-800 mb-10">Join an Ongoing Group</h2>
+                        <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-10">Join an Ongoing Group</h2>
                     </Fade>
                     <div className="grid gap-6 max-w-11/12 mx-auto">
 
@@ -48,7 +48,7 @@ const OngoingEvent = () => {
                                         remainingOngoingGroup.map((group, index) => (
                                             <tr key={group._id}>
                                                 <th className='hidden md:table-cell'>
-                                                    <label>
+                                                    <label className='text-black dark:text-gray-300'>
                                                         {index + 1}
                                                     </label>
                                                 </th>
@@ -62,22 +62,22 @@ const OngoingEvent = () => {
                                                             </div>
                                                         </div>
                                                         <div>
-                                                            <div className="font-bold">{group?.name}</div>
-                                                            <div className="text-sm opacity-50">Host: {group?.userName}</div>
+                                                            <div className="font-bold text-black dark:text-gray-300">{group?.name}</div>
+                                                            <div className="text-sm opacity-50 text-black dark:text-gray-300">Host: {group?.userName}</div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className='hidden md:table-cell'>
+                                                <td className='hidden md:table-cell text-black dark:text-gray-300'>
                                                     {group?.meetingLocation}
                                                     <br />
                                                     <span className="badge badge-ghost badge-sm">Total Member: {group?.maxMembers}</span>
                                                 </td>
                                                 <td className='hidden md:table-cell'><small className='bg-green-500 p-1 text-gray-300'>ONGOING</small></td>
-                                                <td className='hidden md:table-cell'>{new Date(group?.startDate).toLocaleDateString()}</td>
+                                                <td className='hidden md:table-cell text-black dark:text-gray-300'>{new Date(group?.startDate).toLocaleDateString()}</td>
                                                 <th className='flex flex-col md:flex-row gap-1'>
                                                     <Link to={`/groups/${group?._id}`} className="btn btn-primary text-white">Info</Link>
                                                     <Link to={`/groups/${group?._id}`} className="btn bg-green-500 text-white">Join</Link>
-                                                    
+
                                                 </th>
                                             </tr>
                                         ))

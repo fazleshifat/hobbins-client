@@ -28,7 +28,6 @@ const myGroup = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-            console.log(result.isConfirmed)
             if (result.isConfirmed) {
 
                 // start deleting group delete
@@ -37,7 +36,6 @@ const myGroup = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -51,7 +49,7 @@ const myGroup = () => {
                     })
             }
             else {
-                console.log('delete cancel', id)
+               
             }
         });
     }

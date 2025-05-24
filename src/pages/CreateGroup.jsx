@@ -17,13 +17,9 @@ const CreateGroup = () => {
         const formData = new FormData(form);
         const groupData = Object.fromEntries(formData.entries());
 
-        console.log(groupData);
-
         // setLoading(false)
 
-
-
-        // You can POST this to your backend here
+        // posting data into DB 
 
         fetch('https://hobbins-server.vercel.app/groups', {
             method: 'POST',
@@ -34,7 +30,6 @@ const CreateGroup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         // position: "top-end",
@@ -49,7 +44,7 @@ const CreateGroup = () => {
                 }
             })
             .catch((error) => {
-                console.error("Error creating group:", error);
+
             })
             .finally(() => {
                 // setLoading(false);

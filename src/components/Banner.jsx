@@ -29,7 +29,7 @@ const Banner = () => {
                                         <br />
                                         <TypeWriter></TypeWriter></span></h1>
 
-                                <p className="py-6">
+                                <p className="dark:text-white py-6">
                                     Build your community, share what you love, and explore new passions like <span className='font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent'>Painting, Gaming, Hiking, Cooking</span> or anything — all in one place.
                                 </p>
                                 <Link to='/myGroups' className="btn bg-gradient-to-r from-purple-500 to-pink-500 text-white">Get Started</Link>

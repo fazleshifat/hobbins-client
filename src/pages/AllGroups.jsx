@@ -5,7 +5,6 @@ import { Fade } from 'react-awesome-reveal';
 const AllGroups = () => {
 
     const groupsData = useLoaderData();
-    // console.log(groupsData)
 
     const Navigation = useNavigation()
 

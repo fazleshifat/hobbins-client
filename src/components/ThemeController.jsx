@@ -4,7 +4,7 @@ import { FiMoon } from "react-icons/fi";
 
 const ThemeController = () => {
 
-    const [theme, setTheme] = useState('light');
+    // const [theme, setTheme] = useState('cupcake');
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
@@ -14,7 +14,7 @@ const ThemeController = () => {
         }
         else if (systemPrefersDark) {
             setTheme('dark')
-        }
+        }   
     }, [])
 
     useEffect(() => {
@@ -22,6 +22,12 @@ const ThemeController = () => {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
 
+
+        if (theme === 'dark') {
+            html.classList.add('dark'); // for Tailwind dark:
+        } else {
+            html.classList.remove('dark');
+        }
     }, [theme])
 
     const toggleTheme = () => {
@@ -43,14 +49,14 @@ const ThemeController = () => {
                         (
                             <>
                                 {/* sun icon */}
-                                <FiSun className='text-3xl'/>
+                                <FiSun className='text-3xl text-indigo-300' />
                             </>
                         )
                         :
                         (
                             <>
                                 {/* moon icon */}
-                                <FiMoon className='text-3xl'/>
+                                <FiMoon className='text-3xl text-indigo-600' />
                             </>
                         )
 

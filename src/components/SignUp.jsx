@@ -57,7 +57,6 @@ const SignUp = () => {
 
                         setUser(result.user)
                         navigate('/');
-                        console.log(result.user)
 
                         const userProfile = {
                             email,
@@ -88,7 +87,6 @@ const SignUp = () => {
                                     });
 
                                 }
-                                console.log('user data after save at DB', data)
                             })
 
                     })
@@ -98,7 +96,7 @@ const SignUp = () => {
 
             })
             .catch(error => {
-                console.log(error.code)
+                setErrorMessage(error.code)
             })
 
     }

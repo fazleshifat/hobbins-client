@@ -16,7 +16,6 @@ const UpdateGroup = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updatedGroup = Object.fromEntries(formData.entries());
-        console.log(updatedGroup)
 
         // send data to DB
         fetch(`https://hobbins-server.vercel.app/groups/${_id}`, {

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { auth } from '../firebase/firebase.init';
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import ThemeController from './ThemeController';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
 
@@ -29,17 +30,17 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li><Link to='/' className='font-bold hover:underline hover:text-indigo-600'>Home</Link></li>
-            <li><Link to='/all-groups' className='font-bold hover:underline hover:text-indigo-600'>All Groups</Link></li>
-            <li><Link to='/myGroups' className='font-bold hover:underline hover:text-indigo-600'>My Groups</Link></li>
-            <li><Link to='/createGroup' className='font-bold hover:underline hover:text-indigo-600'>Create Groups</Link></li>
+            <li><Link to='/' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>Home</Link></li>
+            <li><Link to='/all-groups' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>All Groups</Link></li>
+            <li><Link to='/myGroups' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>My Groups</Link></li>
+            <li><Link to='/createGroup' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>Create Groups</Link></li>
 
         </>
     )
 
 
     return (
-        <div className="navbar justify-between dark:bg-indigo-900  light:bg-gradient-to-br from-indigo-300 via-purple-200 to-pink-100">
+        <div className="navbar justify-between dark:bg-indigo-600 light:bg-gradient-to-br from-indigo-300 via-purple-200 to-pink-100">
             <div className="flex items-center">
                 {/* Mobile Dropdown */}
                 <div className="dropdown">
@@ -72,7 +73,8 @@ const Navbar = () => {
                 </ul>
 
                 {/* theme controller */}
-                <ThemeController></ThemeController>
+                <ThemeToggle></ThemeToggle>
+                {/* <ThemeController></ThemeController> */}
                 {/* Auth Buttons */}
                 {
                     !user ? (
