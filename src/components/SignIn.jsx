@@ -11,21 +11,14 @@ const SignIn = () => {
 
 
     const { user, signInUser, setUser, signInGoogle, errorMessage, setErrorMessage } = use(AuthContext);
-    // setErrorMessage('')
 
 
     const location = useLocation();
     const navigate = useNavigate();
-    // console.log(location)
 
 
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 1500);
-    }, [])
+    window.scrollTo(0, 0);
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -34,18 +27,14 @@ const SignIn = () => {
 
         const { email, password } = Object.fromEntries(formData.entries());
 
-        // console.log(email, password)
 
         // sign in user with firebase auth
         signInUser(email, password)
             .then((result) => {
-                // console.log(userCredential.user);
-                // setLoading(false)
                 navigate(location?.state || '/');
                 setUser(result.user);
 
                 Swal.fire({
-                    // position: "top-end",
                     icon: "success",
                     title: "Log in success!",
                     showConfirmButton: false,

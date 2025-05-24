@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState('')
     const [loading, setLoading] = useState(true)
-    // setErrorMessage('')
 
 
     const createUser = (email, password) => {
@@ -38,7 +37,6 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
 
             // to always see the ser info at consol
-            console.log(user)
         });
 
 

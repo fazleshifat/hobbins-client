@@ -1,6 +1,5 @@
 import React, { use } from 'react';
 import Slider from './Slider';
-import { AuthContext } from '../AuthProvider/AuthContexts';
 import TypeWriter from './TypeWriter';
 import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router';

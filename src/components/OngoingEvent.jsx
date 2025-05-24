@@ -4,16 +4,12 @@ import { Link, useLoaderData } from 'react-router';
 const OngoingEvent = () => {
 
     const groups = useLoaderData();
-    // console.log(groups)
     const today = new Date();
-    // const deadLine = new Date('2025-04-20');
-    // console.log(deadLine)
-    // console.log(today)
+    
 
     const ongoingGroup = groups.filter(group => new Date(group.startDate) > today)
     const remainingOngoingGroup = ongoingGroup.slice(0, 6)
-    // console.log(remainingOngoingGroup)
-
+    
 
     return (
         <>

@@ -4,6 +4,8 @@ import { FiMoon } from "react-icons/fi";
 
 const ThemeController = () => {
 
+    // This file it's not used, after this file -{ThemeToggle} is used for dark theme
+
     // const [theme, setTheme] = useState('cupcake');
 
     useEffect(() => {

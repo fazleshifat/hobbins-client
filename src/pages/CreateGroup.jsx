@@ -22,7 +22,6 @@ const CreateGroup = () => {
         const formData = new FormData(form);
         const groupData = Object.fromEntries(formData.entries());
 
-        // setLoading(false)
 
         // posting data into DB 
 
@@ -85,6 +84,7 @@ const CreateGroup = () => {
                                             <option value="cooking">Cooking</option>
                                             <option value="reading">Reading</option>
                                             <option value="writing">Writing</option>
+                                            <option value="others">Others</option>
                                         </select>
 
                                         <label className="label">Start Date</label>
@@ -98,8 +98,8 @@ const CreateGroup = () => {
                                         <label className="label">Meeting Location</label>
                                         <input type="text" name="meetingLocation" className="input w-full" placeholder="Location" required />
 
-                                        <label className="label">Image URL</label>
-                                        <input type="text" name="image" className="input w-full" placeholder="Image URL" required />
+                                        <label className="label">Group Image URL</label>
+                                        <input type="text" name="image" className="input w-full" placeholder="Group Image URL" required />
 
                                         <label className="label">User Name</label>
                                         <input defaultValue={user.displayName} type="text" name="userName" className="input w-full" placeholder="Your name" readOnly />

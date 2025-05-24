@@ -7,10 +7,10 @@ import Swal from 'sweetalert2';
 import { Fade } from 'react-awesome-reveal';
 import Spinner from '../components/Spinner';
 
+
 const myGroup = () => {
 
-    const { user, loading, setLoading } = use(AuthContext);
-    // const [myGroup, setmyGroup] = useState(null);
+    const { user } = use(AuthContext);
     const groups = useLoaderData();
 
     const myAllGroup = groups.filter(group => group.userEmail === user.email)
@@ -23,9 +23,13 @@ const myGroup = () => {
         return <Spinner />;
     }
 
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // const update = () => setIsModalOpen(true);
+    // const closeModal = () => setIsModalOpen(false);
 
     const handleDeleteGroup = (id) => {
-        // console.log('group delete on going', id)
+   
 
         Swal.fire({
             title: "Are you sure?",
@@ -165,14 +169,11 @@ const myGroup = () => {
                                                 <Link to={`/updateGroup/${myGroup._id}`} className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</Link>
                                                 <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
 
+
+
                                                 {/* all the actions button send to a different button.This component is separatly created specially for (Update button) to reduce code in one single file */}
-                                                {/* <UpdateGroupInfo groups={groups} id={myGroup?._id}></UpdateGroupInfo> */}
+                                            
 
-                                                {/* <UpdateGroupInfo
-                                                id={myGroup.id}
-                                                myGroup={myGroup}>
-
-                                            </UpdateGroupInfo> */}
 
                                             </div>
                                         </td>

@@ -5,7 +5,6 @@ import { signOut } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { auth } from '../firebase/firebase.init';
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import ThemeController from './ThemeController';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -24,7 +23,7 @@ const Navbar = () => {
             });
             navigate('/signIn')
         }).catch((error) => {
-            console.log(error.message)
+           
         });
     }
 
@@ -97,7 +96,7 @@ const Navbar = () => {
                                 <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
 
                                 <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 md:w-auto p-2 shadow text-sm mt-20">
-                                    <p className="text-center">{user.displayName}</p>
+                                    <p className="text-center dark:text-white">{user.displayName}</p>
                                 </div>
                             </div>
                             <button onClick={handleSignOut} className='btn btn-accent btn-sm text-white ml-1'>Logout</button>

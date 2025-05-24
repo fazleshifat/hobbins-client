@@ -14,6 +14,7 @@ import UpcomingEvents from "./UpcomingEvents";
 import Review from "./Review";
 import AboutUs from "./AboutUs";
 import EventDetails from "./EventDetails";
+import ModalUpdateGroupInfo from "../pages/ModalUpdateGroupInfo";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,13 @@ export const router = createBrowserRouter([
                     <UpdateGroup></UpdateGroup>
                 </PrivateRoute>
             },
+            // {
+            //     path: '/updateGroup/:id',
+            //     loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+            //     element: <PrivateRoute>
+            //         <ModalUpdateGroupInfo></ModalUpdateGroupInfo>
+            //     </PrivateRoute>
+            // },
             {
                 path: '/groups/:id',
                 loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),

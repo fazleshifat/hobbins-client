@@ -7,7 +7,7 @@ const GroupDetails = () => {
 
     const groupData = useLoaderData();
 
-    // Jump instantly to top-left
+    // Jump instantly to top
     window.scrollTo(0, 0);
 
 

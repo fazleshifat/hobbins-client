@@ -16,7 +16,6 @@ const Home = () => {
 
     const groupsData = useLoaderData();
 
-    // console.log(groupsData)
 
     const Navigation = useNavigation()
 

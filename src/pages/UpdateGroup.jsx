@@ -8,7 +8,7 @@ const UpdateGroup = () => {
 
     const { user } = use(AuthContext)
     const { _id, name, category, startDate, maxMembers, meetingLocation, image, userName, userEmail, description } = useLoaderData();
-    // console.log(group)
+  
 
     const navigate = useNavigate();
 

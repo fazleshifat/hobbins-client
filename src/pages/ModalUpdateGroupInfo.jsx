@@ -23,7 +23,7 @@ const ModalUpdateGroupInfo = ({ id, myGroup }) => {
                 }}
                 className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm"
             >
-                Update
+                Open Modal
             </button>
             <dialog id="group_modal" className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
