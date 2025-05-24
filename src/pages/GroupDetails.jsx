@@ -38,7 +38,11 @@ const GroupDetails = () => {
 
         <Fade cascade damping={0.5}>
 
-            <div className='w-11/12 mx-auto min-h-screen py-8 md:py-0 flex items-center'>
+            <div className='w-11/12 mx-auto min-h-screen py-8 md:py-0 flex flex-col items-center'>
+                <h1 className="text-2xl md:text-5xl font-bold text-center mt-10 bg-gradient-to-r mb-5 from-purple-500 to-pink-500 text-transparent bg-clip-text">
+                    Group Details
+                </h1>
+
                 <div className="max-w-5xl mx-auto bg-base-300 shadow-lg rounded-2xl overflow-hidden p-6 border border-primary">
                     <div className="flex flex-col md:flex-row gap-6">
                         <div className="w-full md:w-1/2">
