@@ -30,7 +30,7 @@ const sections = [
 
 const AboutUs = () => {
     return (
-        <div className="min-h-screen overflow-hidden py-20">
+        <div className="min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
             <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
                 About Us
             </h2>

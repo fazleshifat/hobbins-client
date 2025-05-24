@@ -9,7 +9,7 @@ const UpcomingEvents = () => {
     const events = use(eventDataPromise);
 
     return (
-        <div className="dark:bg-none dark:bg-indigo-950 rounded-3xl bg-gradient-to-bl from-pink-100 via-indigo-100 to-indigo-100 py-12 px-6 min-h-screen">
+        <div className="dark:bg-none dark:bg-indigo-950 rounded-3xl bg-gradient-to-bl from-pink-100 via-indigo-100 to-indigo-100 py-12 px-6 min-h-screen flex flex-col items-center justify-center">
             <Fade cascade damping={0.1}>
                 <h2 className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-500  to-purple-300 mb-10">
                     Upcoming Events

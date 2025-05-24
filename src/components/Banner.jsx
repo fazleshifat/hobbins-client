@@ -8,15 +8,17 @@ const Banner = () => {
 
     return (
         <div id='home'>
-            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto items-center">
+            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto ">
 
 
 
-                <Slider></Slider>
+                <div className='flex-1 md:w-6/12'>
+                    <Slider></Slider>
+                </div>
 
 
-                <Fade cascade direction={'left'}>
-                    <div className="hero">
+                <div className="hero md:w-6/12">
+                    <Fade cascade direction={'left'}>
                         <div className="hero-content flex-col">
                             <div>
 
@@ -34,8 +36,8 @@ const Banner = () => {
                                 <Link to='/myGroups' className="btn bg-gradient-to-r from-purple-500 to-pink-500 text-white">Get Started</Link>
                             </div>
                         </div>
-                    </div>
-                </Fade>
+                    </Fade>
+                </div>
             </div>
         </div >
     );

@@ -34,7 +34,7 @@ const reviews = [
 
 const Review = () => {
     return (
-        <div className=" min-h-[80vh] overflow-hidden dark:bg-none dark:bg-gray-800 dark:border-l-6 dark:border-l-indigo-200 dark:border-t-0 bg-gradient-to-t from-indigo-200 to-bg-base-300 border-t-6 border-t-indigo-200 rounded-3xl py-20 px-6">
+        <div className=" min-h-[80vh] flex flex-col items-center justify-center overflow-hidden dark:bg-none dark:bg-gray-800 dark:border-l-6 dark:border-l-indigo-200 dark:border-t-0 bg-gradient-to-t from-indigo-200 to-bg-base-300 border-t-6 border-t-indigo-200 rounded-3xl py-20 px-6">
             <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500 mb-16">
                 What Our Users Say
             </h2>
