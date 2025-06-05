@@ -43,7 +43,9 @@ const Review = () => {
                 {reviews.map((review, index) => (
                     <Fade key={index} direction="up" triggerOnce={false}>
                         <div className={`rounded-full w-72 h-72 flex flex-col items-center justify-center text-center p-10 bg-gradient-to-br ${review.bg} shadow-xl transition-transform hover:scale-105`}>
-                            <img src={review?.image} className='w-30' alt="client" />
+
+                            <img src={review?.image} className='w-30 border-2 border-gray-400 rounded-full p-1' alt="client" />
+
                             <h3 className="text-lg font-semibold text-gray-800">{review.name}</h3>
                             <span className="text-sm text-gray-600 italic mb-2">{review.role}</span>
                             <p className="text-gray-700 text-sm leading-relaxed">{review.feedback}</p>
