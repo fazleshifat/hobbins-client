@@ -45,7 +45,7 @@
 - `mongodb`
 - `body-parser`
 
-> ⚠️ Authentication is not yet implemented in this version. Future updates will include Firebase and JWT for secure access.
+> ⚠️ Future updates will include JWT for secure access.
 
 ---
 
