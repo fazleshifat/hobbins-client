@@ -1,6 +1,9 @@
 # 🧑‍🤝‍🧑 Hobbins - Group-Based Hobby Sharing Platform
 
-![Hobbins Screenshot](https://your-screenshot-url.com/hobbins-preview.png)
+## 🌐 Live Site & Links
+
+- 🔗 **Live Website:** [https://hobbins.netlify.app](https://hobbins.netlify.app)
+-- 📊 **API Documentation:** Coming Soon
 
 **Hobbins** is a group-based hobby-sharing platform where users can discover and join various hobby groups. They can create or explore groups based on different interests, making it easier to connect with like-minded people. The project is built using the MERN stack and focuses on efficient CRUD operations for managing users and hobby groups.
 
