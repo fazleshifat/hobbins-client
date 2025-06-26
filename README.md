@@ -1,32 +1,70 @@
-# 🎉 hoBBins - Group Management Web App
+# 🧑‍🤝‍🧑 Hobbins - Group-Based Hobby Sharing Platform
 
-Welcome to **hoBBins** — a sleek, modern React web app that helps you find, join, and create interest groups easily! Whether you want to explore communities or build your own, hoBBins makes it simple and enjoyable.
+## 🌐 Live Site & Links
+
+- 🔗 **Live Website:** [https://hobbins.netlify.app](https://hobbins.netlify.app)
+-- 📊 **API Documentation:** Coming Soon
+
+**Hobbins** is a group-based hobby-sharing platform where users can discover and join various hobby groups. They can create or explore groups based on different interests, making it easier to connect with like-minded people. The project is built using the MERN stack and focuses on efficient CRUD operations for managing users and hobby groups.
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Technologies Used
 
-Check out the live version here: [https://hobbins.netlify.app/](https://hobbins.netlify.app/)
+- **Frontend:** React.js, Tailwind CSS, DaisyUI, Framer Motion, React Router DOM
+- **Backend:** Node.js, Express.js, MongoDB
+- **Deployment:** Netlify (Frontend), Render (Backend)
+- **Tools & Libraries:** Axios, React Hook Form
 
 ---
 
 ## ✨ Key Features
 
-- 🔐 **User Authentication:** Secure login and registration with Firebase Authentication.
-- 🌍 **Group Discovery:** Browse and explore all available groups with detailed info.
-- 👥 **My Groups:** Access and manage groups you’ve joined or created.
-- 🛠️ **Create Groups:** Easily create new groups with relevant info.
-- 🌗 **Theme Toggle:** Switch between Light and Dark modes with smooth animations; preferences saved in localStorage.
+- 🧑‍🤝‍🧑 Group Creation and Listing
+- 👥 Join & Manage Hobby Groups
+- 📝 User and Group CRUD operations
+- 📱 Responsive and Modern UI
+- ⚙️ Form Validation with React Hook Form
+- 🧭 Routing with React Router
+- 🎨 Smooth animations with Framer Motion
 
 ---
 
-## 🛠 Technologies Used
+## 📦 Project Dependencies
 
-- React.js (Hooks and functional components)
-- React Router DOM for navigation
-- Firebase Authentication for user management
-- Tailwind CSS & DaisyUI for modern, responsive styling
-- SweetAlert2 for interactive alerts
-- React Icons for consistent UI icons
+### Frontend
+- `react`
+- `react-router-dom`
+- `axios`
+- `react-hook-form`
+- `framer-motion`
+- `daisyui`
+- `tailwindcss`
 
+### Backend
+- `express`
+- `cors`
+- `dotenv`
+- `mongodb`
+- `body-parser`
 
+> ⚠️ Future updates will include JWT for secure access.
+
+---
+
+## 🖥️ How to Run the Project Locally
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/hobbins.git
+cd hobbins
+
+cd client
+npm install
+npm run dev
+
+cd server
+npm install
+# Create a .env file and configure the following:
+# MONGODB_URI=
+node index.js
