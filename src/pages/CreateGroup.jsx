@@ -25,7 +25,7 @@ const CreateGroup = () => {
 
         // posting data into DB 
 
-        fetch('https://hobbins-server.vercel.app/groups', {
+        fetch('http://localhost:3000/groups', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

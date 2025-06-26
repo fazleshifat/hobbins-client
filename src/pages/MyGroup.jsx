@@ -47,7 +47,7 @@ const myGroup = () => {
             if (result.isConfirmed) {
 
                 // start deleting group delete
-                fetch(`https://hobbins-server.vercel.app/groups/${id}`, {
+                fetch(`http://localhost:3000/groups/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

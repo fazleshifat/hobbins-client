@@ -14,7 +14,7 @@ const ModalForUpdate = ({ group }) => {
 
     // useEffect(() => {
     //     if (id) {
-    //         fetch(`https://hobbins-server.vercel.app/groups/${id}`)
+    //         fetch(`http://localhost:3000/groups/${id}`)
     //             .then(res => res.json())
     //             .then(data => setGroupData(data))
     //             .catch(err => console.error(err));
@@ -28,7 +28,7 @@ const ModalForUpdate = ({ group }) => {
         const updatedGroup = Object.fromEntries(formData.entries());
         
 
-        fetch(`https://hobbins-server.vercel.app/groups/${_id}`, {
+        fetch(`http://localhost:3000/groups/${_id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updatedGroup),

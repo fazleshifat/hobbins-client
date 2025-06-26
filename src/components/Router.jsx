@@ -16,6 +16,9 @@ import AboutUs from "./AboutUs";
 import EventDetails from "./EventDetails";
 import ModalUpdateGroupInfo from "../pages/ModalUpdateGroupInfo";
 import ModalForUpdate from "./ModalForUpdate";
+import Dashboard from "../Dashboard/Dashboard";
+import DashboardOverview from "../Dashboard/DashboardOverview";
+import Profile from "../Dashboard/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -24,12 +27,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: async () => await fetch('https://hobbins-server.vercel.app/groups'),
+                loader: async () => await fetch('http://localhost:3000/groups'),
                 Component: Home
             },
             {
                 path: '/all-groups',
-                loader: async () => await fetch('https://hobbins-server.vercel.app/groups'),
+                loader: async () => await fetch('http://localhost:3000/groups'),
                 Component: AllGroups
             },
             {
@@ -40,35 +43,35 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myGroups',
-                loader: async () => await fetch('https://hobbins-server.vercel.app/groups'),
+                loader: async () => await fetch('http://localhost:3000/groups'),
                 element: <PrivateRoute>
                     <MyGroup></MyGroup>
                 </PrivateRoute>
             },
             // {
             //     path: '/updateGroup/:id',
-            //     loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+            //     loader: async ({ params }) => await fetch(`http://localhost:3000/groups/${params.id}`),
             //     element: <PrivateRoute>
             //         <UpdateGroup></UpdateGroup>
             //     </PrivateRoute>
             // },
             // {
             //     path: '/updateGroup/:id',
-            //     loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+            //     loader: async ({ params }) => await fetch(`http://localhost:3000/groups/${params.id}`),
             //     element: <PrivateRoute>
             //         <ModalForUpdate></ModalForUpdate>
             //     </PrivateRoute>
             // },
             // {
             //     path: '/updateGroup/:id',
-            //     loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+            //     loader: async ({ params }) => await fetch(`http://localhost:3000/groups/${params.id}`),
             //     element: <PrivateRoute>
             //         <ModalUpdateGroupInfo></ModalUpdateGroupInfo>
             //     </PrivateRoute>
             // },
             {
                 path: '/groups/:id',
-                loader: async ({ params }) => await fetch(`https://hobbins-server.vercel.app/groups/${params.id}`),
+                loader: async ({ params }) => await fetch(`http://localhost:3000/groups/${params.id}`),
                 element: <PrivateRoute>
                     <GroupDetails></GroupDetails>
                 </PrivateRoute>,
@@ -81,11 +84,46 @@ export const router = createBrowserRouter([
             {
                 path: '/signUp',
                 Component: SignUp
-            }
+            },
+
+
 
         ],
 
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute>
+            <Dashboard></Dashboard>
+        </PrivateRoute>,
+        children: [
+            {
+                index: true,
+                element: <DashboardOverview />
+            }
+            ,
+            {
+                path: 'all-groups',
+                loader: async () => await fetch('http://localhost:3000/groups'),
+                element: <AllGroups />
+            },
+            {
+                path: 'create-group',
+                element: <CreateGroup />
+            },
+            {
+                path: 'my-groups',
+                loader: async () => await fetch('http://localhost:3000/groups'),
+                element: <MyGroup />
+            },
+            {
+                path: 'profile/:email',
+                loader: async ({ params }) => await fetch(`http://localhost:3000/users/${params.email}`),
+                element: <Profile />
+            }
+        ]
     }
+
     , {
         path: '/eventDetails',
         Component: EventDetails

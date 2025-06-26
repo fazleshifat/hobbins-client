@@ -9,7 +9,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
 
-    const { user } = use(AuthContext);
+    const { user, userSignOut } = use(AuthContext);
     const navigate = useNavigate();
 
     const [showNavbar, setShowNavbar] = useState(true);
@@ -28,26 +28,18 @@ const Navbar = () => {
     }, [lastScrollY]);
 
     const handleSignOut = () => {
-        signOut(auth).then(() => {
-            Swal.fire({
-                // position: "top-end",
-                icon: "success",
-                title: "Signed out successful! Still you can visit the homepage",
-                showConfirmButton: false,
-                timer: 2000
-            });
-            navigate('/signIn')
-        }).catch((error) => {
-
-        });
+        userSignOut();
+        navigate('/signIn');
     }
 
     const links = (
         <>
-            <li><Link to='/' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>Home</Link></li>
-            <li><Link to='/all-groups' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>All Groups</Link></li>
-            <li><Link to='/myGroups' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>My Groups</Link></li>
-            <li><Link to='/createGroup' className='font-bold text-gray-600 dark:text-indigo-300 hover:underline hover:text-indigo-500'>Create Groups</Link></li>
+            <li><Link to='/' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Home</Link></li>
+            <li><Link to='/all-groups' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>All Groups</Link></li>
+            <li><Link to='/myGroups' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>My Groups</Link></li>
+            <li><Link to='/createGroup' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Create Groups</Link></li>
+            <li><Link to='/aboutUs' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>About Us</Link></li>
+            {user && <li><Link to='/dashboard' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Dashboard</Link></li>}
 
         </>
     )
@@ -68,7 +60,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bottom-11 bg-base-100 rounded-box z-10 mt-3 w-40 p-2 shadow text-sm">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-40 p-2 shadow text-sm">
                             {links}
                         </ul>
                     </div>
@@ -85,7 +77,7 @@ const Navbar = () => {
 
                 <div className="flex items-center">
                     {/* Desktop Links */}
-                    <ul className='space-x-5 mr-3 menu-horizontal hidden md:flex items-center px-1 text-sm'>
+                    <ul className='space-x-7 mr-3 menu-horizontal hidden md:flex items-center px-1 text-sm'>
                         {links}
                     </ul>
 
@@ -103,21 +95,23 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
-                                <div className="dropdown dropdown-hover flex items-center mx-auto">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
-                                        <img
-                                            className='rounded-full object-cover w-full h-full'
-                                            alt="User Avatar"
-                                            src={user.photoURL}
-                                        />
-                                    </div>
-                                    <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
+                                <div className='flex items-center bg-base-300 p-2 rounded-3xl'>
+                                    <div className="dropdown dropdown-hover flex items-center mx-auto">
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
+                                            <img
+                                                className='rounded-full object-cover w-full h-full'
+                                                alt="User Avatar"
+                                                src={user.photoURL}
+                                            />
+                                        </div>
+                                        <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
 
-                                    <div tabIndex={0} className="dropdown-content bottom-10 menu bg-base-100 rounded-box w-30 absolute z-10 md:w-auto p-2 shadow text-sm mt-20">
-                                        <p className="text-center dark:text-white">{user.displayName}</p>
+                                        <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-30 absolute z-10  p-2 shadow text-sm mt-20">
+                                            <p className="text-center dark:text-white">{user.displayName}</p>
+                                        </div>
                                     </div>
+                                    <button onClick={handleSignOut} className='btn btn-accent btn-sm text-white ml-1'>Logout</button>
                                 </div>
-                                <button onClick={handleSignOut} className='btn btn-accent btn-sm text-white ml-1'>Logout</button>
                             </>
                         )
                     }
