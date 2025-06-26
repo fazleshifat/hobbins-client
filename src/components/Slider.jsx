@@ -7,8 +7,6 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import './slider.css';
-
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
@@ -30,31 +28,31 @@ export default function Slider() {
                 }}
                 pagination={true}
                 modules={[EffectCoverflow, Pagination]}
-                className="mySwiper flex items-center"
+                className="mySwiper h-[300px]"
             >
                 <SwiperSlide>
-                    <img src="/assets/photographer.png" />
+                    <img src="/assets/photographer.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/coding.png" />
+                    <img src="/assets/coding.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/skethcers.png" />
+                    <img src="/assets/skethcers.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/booklovers.png" />
+                    <img src="/assets/booklovers.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/fishing.png" />
+                    <img src="/assets/fishing.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/guitars.png" />
+                    <img src="/assets/guitars.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/videoGames.png" />
+                    <img src="/assets/videoGames.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/cooking.png" />
+                    <img src="/assets/cooking.png" className='mx-auto h-full'/>
                 </SwiperSlide>
 
             </Swiper>

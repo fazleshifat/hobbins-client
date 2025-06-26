@@ -20,12 +20,12 @@ const ChatCard = ({ name, time, message, img, position }) => (
 const ChatSection = () => {
     return (
         <Fade cascade damping={0.6}>
-            <div className="py-12 px-4 md:px-12">
+            <div className="max-w-[1300px] mx-auto py-12 px-4">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-violet-500 text-transparent bg-clip-text">
                     💬 Hobbyist Chat Rooms
                 </h2>
 
-                <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="bg-gradient-to-br from-rose-100 via-fuchsia-100 to-indigo-100 p-1 rounded-2xl">
                         <ChatCard
                             name="Zara 🎨"

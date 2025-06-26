@@ -6,6 +6,7 @@ import { MdAttachEmail } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { Fade } from 'react-awesome-reveal';
 import Spinner from '../components/Spinner';
+import ModalForUpdate from '../components/ModalForUpdate';
 
 
 const myGroup = () => {
@@ -13,8 +14,11 @@ const myGroup = () => {
     const { user } = use(AuthContext);
     const groups = useLoaderData();
 
+    const [selectedGroup, setSelectedGroup] = useState(null);
+
     const myAllGroup = groups.filter(group => group.userEmail === user.email)
     const [remainingGroup, setRemainingGroup] = useState(myAllGroup);
+
 
 
     const Navigation = useNavigation()
@@ -29,7 +33,7 @@ const myGroup = () => {
     // const closeModal = () => setIsModalOpen(false);
 
     const handleDeleteGroup = (id) => {
-   
+
 
         Swal.fire({
             title: "Are you sure?",
@@ -166,13 +170,25 @@ const myGroup = () => {
                                             <div className="flex flex-col md:flex-row gap-1 justify-end">
 
                                                 <Link to={`/groups/${myGroup?._id}`} className="btn text-white btn-success w-10 md:w-fit btn-xs md:btn-sm">Info</Link>
-                                                <Link to={`/updateGroup/${myGroup._id}`} className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</Link>
+                                                {/* <Link to={`/updateGroup/${myGroup._id}`} className="btn text-white btn-warning w-10 md:w-fit btn-xs md:btn-sm">Update</Link> */}
+                                                <button
+                                                    className="btn btn-warning text-white w-10 md:w-fit btn-xs md:btn-sm"
+                                                    onClick={() => {
+                                                        setSelectedGroup(myGroup);
+                                                        document.getElementById('my_modal_4').showModal();
+                                                    }}
+                                                >
+                                                    Update
+                                                </button>
+                                                {selectedGroup && (
+                                                    <ModalForUpdate group={selectedGroup}></ModalForUpdate>
+                                                )}
                                                 <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
 
 
 
                                                 {/* all the actions button send to a different button.This component is separatly created specially for (Update button) to reduce code in one single file */}
-                                            
+
 
 
                                             </div>

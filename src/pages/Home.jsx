@@ -27,7 +27,7 @@ const Home = () => {
 
     return (
         <Fade cascade damping={0.5}>
-            <div className='py-14 md:px-6 bg-base-300'>
+            <div>
                 <ReactReveal></ReactReveal>
                 <Banner></Banner>
                 <OngoingEvent groupsData={groupsData}></OngoingEvent>

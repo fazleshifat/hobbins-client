@@ -8,18 +8,18 @@ const Banner = () => {
 
     return (
         <div id='home'>
-            <div className="flex flex-col-reverse md:flex-row max-w-11/12 mx-auto ">
+            <div className="max-w-[1300px] h-auto md:h-[400px] mx-auto gap-10 px-10 pt-10 flex flex-col-reverse md:flex-row justify-between items-center">
 
 
 
-                <div className='flex-1 md:w-6/12'>
+                <div className='flex-1'>
                     <Slider></Slider>
                 </div>
 
 
-                <div className="hero md:w-6/12">
+                <div className="flex-1">
                     <Fade cascade direction={'left'}>
-                        <div className="hero-content flex-col">
+                        <div className="flex-col">
                             <div>
 
                                 <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">

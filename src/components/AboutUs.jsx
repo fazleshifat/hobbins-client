@@ -30,30 +30,33 @@ const sections = [
 
 const AboutUs = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
-            <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
-                About Us
-            </h2>
 
-            {sections.map((section, index) => (
-                <Fade key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
-                    <div className={`${section.bg} mx-auto m-3 w-11/12 md:w-8/12 shadow-2xl rounded-4xl py-8 md:py-0 px-6 md:px-10 transition-all`}>
-                        <div className={`max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                            <div className='w-full md:w-6/12'><img className='w-full' src={section?.image} alt="image" /></div>
-                            <div className="text-left">
-                                <h3 className="text-3xl font-bold text-gray-800 mb-3">{section.title}</h3>
-                                <p className="text-gray-600 text-lg mb-4">{section.text}</p>
-                                <ul className="space-y-1 text-gray-700 text-base list-disc list-inside">
-                                    {section.points.map((point, i) => (
-                                        <li key={i}>{point}</li>
-                                    ))}
-                                </ul>
+        <section className='max-w-[1300px] mx-auto px-4'>
+            <div className="py-10 overflow-hidden">
+                <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
+                    About Us
+                </h2>
+
+                {sections.map((section, index) => (
+                    <Fade key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
+                        <div className={`${section.bg} w-8/12 mx-auto m-3 shadow-2xl rounded-4xl transition-all`}>
+                            <div className={`flex flex-col md:flex-row justify-center items-center md:px-8 py-5 gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                <div className=''><img className='w-96' src={section?.image} alt="image" /></div>
+                                <div className="md:w-6/12 px-5">
+                                    <h3 className="text-3xl font-bold text-gray-800 mb-3">{section.title}</h3>
+                                    <p className="text-gray-600 text-lg mb-4">{section.text}</p>
+                                    <ul className="space-y-1 text-gray-700 text-base list-disc list-inside">
+                                        {section.points.map((point, i) => (
+                                            <li key={i}>{point}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Fade>
-            ))}
-        </div>
+                    </Fade>
+                ))}
+            </div>
+        </section>
     );
 };
 
