@@ -19,7 +19,7 @@ const UpdateGroup = () => {
         const updatedGroup = Object.fromEntries(formData.entries());
 
         // send data to DB
-        fetch(`http://localhost:3000/groups/${_id}`, {
+        fetch(`https://hobbins-server.vercel.app/groups/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

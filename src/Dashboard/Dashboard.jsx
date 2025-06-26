@@ -13,7 +13,7 @@ const Dashboard = () => {
     return (
         <>
             {/* <Navbar></Navbar> */}
-            <section className="max-w-[1300px] h-[100vh] mx-auto p-5 flex">
+            <section className="max-w-full h-[100vh] mx-auto p-5 flex">
                 {/* Sidebar */}
                 <div className="w-3/12 sticky h-full top-1 overflow-y-auto pr-4 border-r-5 border-indigo-300 bg-base-300 rounded-xl shadow-md">
                     <div className="flex flex-col h-full">
