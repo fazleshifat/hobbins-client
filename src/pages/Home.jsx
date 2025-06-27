@@ -8,9 +8,9 @@ import UpcomingEvents from '../components/UpcomingEvents';
 import ReactReveal from '../components/ReactReveal';
 import { Fade } from 'react-awesome-reveal';
 import Spinner from '../components/Spinner';
-import AboutUs from '../components/AboutUs';
 import Review from '../components/Review';
 import Contact from '../components/Contact';
+import WhyChooseUS from '../components/WhyChooseUS';
 
 const Home = () => {
 
@@ -33,7 +33,7 @@ const Home = () => {
                 <OngoingEvent groupsData={groupsData}></OngoingEvent>
                 <UpcomingEvents></UpcomingEvents>
                 <ChatSection></ChatSection>
-                <AboutUs></AboutUs>
+                <WhyChooseUS></WhyChooseUS>
                 <Review></Review>
                 <Contact></Contact>
             </div>

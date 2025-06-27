@@ -28,13 +28,13 @@ const sections = [
     }
 ];
 
-const AboutUs = () => {
+const WhyChooseUS = () => {
     return (
 
         <section className='max-w-[1300px] mx-auto px-4'>
             <div className="py-10 overflow-hidden">
                 <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
-                    About Us
+                    Why Choose Us
                 </h2>
 
                 {sections.map((section, index) => (
@@ -60,4 +60,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default WhyChooseUS;

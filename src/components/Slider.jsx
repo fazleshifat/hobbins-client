@@ -49,9 +49,6 @@ export default function Slider() {
                     <img src="/assets/guitars.png" className='mx-auto h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/videoGames.png" className='mx-auto h-full'/>
-                </SwiperSlide>
-                <SwiperSlide>
                     <img src="/assets/cooking.png" className='mx-auto h-full'/>
                 </SwiperSlide>
 

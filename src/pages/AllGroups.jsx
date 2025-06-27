@@ -1,17 +1,39 @@
 import { Link, useLoaderData, useNavigation } from 'react-router';
 import Spinner from '../components/Spinner';
 import { Fade } from 'react-awesome-reveal';
-import { use, useEffect } from 'react';
+import { use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 
 const AllGroups = () => {
 
-    const { allGroups, setAllGroups } = use(AuthContext);
 
-    const groupsData = useLoaderData();
+    // const { allGroups, setAllGroups } = use(AuthContext);
+    const allGroups = useLoaderData()
+    const [availableGroups, setAvailableGroups] = useState([]);
+    const [filterType, setFilterType] = useState("all");
+
     useEffect(() => {
-        setAllGroups(groupsData)
-    }, [groupsData])
+        handleToggleView({ target: { value: filterType } });
+    }, [allGroups]); // runs when allGroups are fetched
+
+    const handleToggleView = (e) => {
+        const value = e.target.value;
+        setFilterType(value);
+
+        if (value === "available") {
+            const filtered = allGroups.filter(
+                (group) => new Date(group.startDate) >= new Date()
+            );
+            setAvailableGroups(filtered);
+        } else if (value === "unavailable") {
+            const filtered = allGroups.filter(
+                (group) => new Date(group.startDate) < new Date()
+            );
+            setAvailableGroups(filtered);
+        } else {
+            setAvailableGroups(allGroups);
+        }
+    };
 
     const Navigation = useNavigation()
 
@@ -22,16 +44,35 @@ const AllGroups = () => {
     return (
         <section className='max-w-[1300px] mx-auto px-5 space-y-4'>
             <h1 className="text-2xl md:text-5xl font-bold text-center mt-10 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-                All Group
+                <h1 className="text-2xl md:text-5xl font-bold text-center mt-10 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+                    {{
+                        available: "Available Groups",
+                        unavailable: "Unavailable Groups",
+                        all: "All Groups",
+                    }[filterType] || "All Groups"}
+                </h1>
             </h1>
+            <div className="w-fit">
+                <select
+                    onChange={handleToggleView}
+                    value={filterType}
+                    name="groupFilter"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                    <option value="all">All Groups</option>
+                    <option value="available">Available Groups</option>
+                    <option value="unavailable">Unavailable Groups</option>
+                </select>
+            </div>
 
             <Fade cascade damping={0.5}>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 
 
+
                     {
-                        allGroups?.map(group => (
+                        availableGroups?.map(group => (
 
 
                             <div
@@ -60,6 +101,7 @@ const AllGroups = () => {
                                             <p>📂 <span className="font-semibold">Category:</span> {group.category}</p>
                                             <p>📅 <span className="font-semibold">Start Date:</span> {group.startDate}</p>
                                             <p>📍 <span className="font-semibold">Location:</span> {group.meetingLocation}</p>
+                                            <p className='font-light'> <span className="font-semibold">Description:</span> {group.description}</p>
                                         </div>
 
                                         <div className="text-center mt-4">

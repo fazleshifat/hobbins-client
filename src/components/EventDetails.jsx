@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 const EventDetails = () => {
     return (
-        <div className='flex items-center bg-base-300 p-5'>
-            <div className="w-11/12 min-h-screen mx-auto flex flex-col items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-200 text-center rounded-lg shadow-lg">
+        <div className='flex items-center p-5'>
+            <div className="w-11/12 min-h-[90vh] mx-auto flex flex-col items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-200 text-center rounded-lg shadow-lg">
 
                 {/* Logo - replace src with your logo */}
                 <img

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import Spinner from './Spinner';
 import { Fade } from 'react-awesome-reveal';
+import Navbar from './Navbar';
 // import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignIn = () => {
@@ -64,6 +65,7 @@ const SignIn = () => {
 
     return (
         <>
+            <Navbar></Navbar>
             <Fade cascade damping={0.5}>
                 <div className="flex items-center m-4 md:m-0 md:min-h-screen">
 

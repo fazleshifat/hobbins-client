@@ -36,9 +36,9 @@ const Navbar = () => {
         <>
             <li><Link to='/' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Home</Link></li>
             <li><Link to='/all-groups' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>All Groups</Link></li>
-            <li><Link to='/myGroups' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>My Groups</Link></li>
-            <li><Link to='/createGroup' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Create Groups</Link></li>
             <li><Link to='/aboutUs' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>About Us</Link></li>
+            <li><Link to='/contactSection' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Contact</Link></li>
+            <li><Link to='/support' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Support</Link></li>
             {user && <li><Link to='/dashboard' className='font-semibold text-gray-600 dark:text-indigo-300 hover:text-indigo-700'>Dashboard</Link></li>}
 
         </>

@@ -12,7 +12,7 @@ const Contact = () => {
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
                 {/* Text & Contact Info */}
-                <Fade direction="left" triggerOnce>
+                <Fade direction="left" triggerOnce={false}>
                     <div>
                         <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
                             Get in Touch
@@ -39,7 +39,7 @@ const Contact = () => {
                 </Fade>
 
                 {/* Form */}
-                <Fade direction="right" triggerOnce>
+                <Fade direction="right" triggerOnce={false}>
                     <form className="bg-white p-8 rounded-2xl shadow-xl space-y-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
