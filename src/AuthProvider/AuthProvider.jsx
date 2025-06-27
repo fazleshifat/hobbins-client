@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContexts';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
-import { useNavigate } from 'react-router';
 
 const provider = new GoogleAuthProvider();
 
@@ -31,6 +30,10 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+    const userSignOut = () => {
+        return signOut(auth)
+    }
+
     // to observe the authentic user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -45,19 +48,6 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [])
 
-    const userSignOut = () => {
-        signOut(auth).then(() => {
-            Swal.fire({
-                // position: "top-end",
-                icon: "success",
-                title: "Signed out successful! Still you can visit the homepage",
-                showConfirmButton: false,
-                timer: 2000
-            });
-        }).catch((error) => {
-
-        });
-    }
 
     const authInfo = {
         user,

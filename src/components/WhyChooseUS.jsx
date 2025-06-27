@@ -31,15 +31,15 @@ const sections = [
 const WhyChooseUS = () => {
     return (
 
-        <section className='max-w-[1300px] mx-auto px-4'>
+        <section className='max-w-[1300px] mx-auto md:px-4'>
             <div className="py-10 overflow-hidden">
-                <h2 className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
+                <h2 className="text-3xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-12">
                     Why Choose Us
                 </h2>
 
                 {sections.map((section, index) => (
                     <Fade key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
-                        <div className={`${section.bg} w-8/12 mx-auto m-3 shadow-2xl rounded-4xl transition-all`}>
+                        <div className={`${section.bg} w-11/12 md:w-8/12 mx-auto m-3 shadow-2xl rounded-4xl transition-all`}>
                             <div className={`flex flex-col md:flex-row justify-center items-center md:px-8 py-5 gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                                 <div className=''><img className='w-96' src={section?.image} alt="image" /></div>
                                 <div className="md:w-6/12 px-5">

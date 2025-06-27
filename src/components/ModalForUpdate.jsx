@@ -1,14 +1,22 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
-import { useLoaderData, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 
 const ModalForUpdate = ({ id }) => {
-    
+
     const [group, setGroup] = useState({});
     const { user } = use(AuthContext);
     const navigate = useNavigate();
+
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    useEffect(() => {
+        if (group?.category) {
+            setSelectedCategory(group.category);
+        }
+    }, [group]);
 
     useEffect(() => {
         fetch(`https://hobbins-server.vercel.app/groups/${id}`)
@@ -46,13 +54,15 @@ const ModalForUpdate = ({ id }) => {
         <div>
             <dialog id="my_modal_4" className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
+                    {/* Title */}
                     <h1 className="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text mb-6">
                         Update Group Information
                     </h1>
 
-                    <form onSubmit={handleUpdateGroup} className="dark:text-white space-y-4">
+                    {/* Form */}
+                    <form onSubmit={handleUpdateGroup} className="dark:text-white space-y-6">
+                        {/* Grid Inputs */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
                             {/* Left Column */}
                             <div className="space-y-4">
                                 <div>
@@ -61,7 +71,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="text"
                                         name="name"
                                         defaultValue={group?.name}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         placeholder="Group name"
                                         required
                                     />
@@ -70,9 +80,9 @@ const ModalForUpdate = ({ id }) => {
                                 <div>
                                     <label className="label">Category</label>
                                     <select
-                                        name="category"
-                                        defaultValue={group?.category}
-                                        className="input w-full"
+                                        value={selectedCategory}
+                                        onChange={(e) => setSelectedCategory(e.target.value)}
+                                        className="select select-bordered w-full"
                                         required
                                     >
                                         <option value="">Select category</option>
@@ -80,7 +90,7 @@ const ModalForUpdate = ({ id }) => {
                                         <option value="painting">Painting</option>
                                         <option value="singing">Singing</option>
                                         <option value="photography">Photography</option>
-                                        <option value="video gaming">Video Gaming</option>
+                                        <option value="video-gaming">Video Gaming</option>
                                         <option value="fishing">Fishing</option>
                                         <option value="running">Running</option>
                                         <option value="cooking">Cooking</option>
@@ -96,7 +106,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="date"
                                         name="startDate"
                                         defaultValue={group?.startDate}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         required
                                     />
                                 </div>
@@ -107,7 +117,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="number"
                                         name="maxMembers"
                                         defaultValue={group?.maxMembers}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         placeholder="Enter max members"
                                         min="1"
                                         required
@@ -123,7 +133,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="text"
                                         name="meetingLocation"
                                         defaultValue={group?.meetingLocation}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         placeholder="Location"
                                         required
                                     />
@@ -135,7 +145,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="text"
                                         name="image"
                                         defaultValue={group?.image}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         placeholder="Image URL"
                                         required
                                     />
@@ -147,7 +157,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="text"
                                         name="userName"
                                         defaultValue={user?.displayName || userName}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         readOnly
                                     />
                                 </div>
@@ -158,7 +168,7 @@ const ModalForUpdate = ({ id }) => {
                                         type="email"
                                         name="userEmail"
                                         defaultValue={user?.email || userEmail}
-                                        className="input w-full"
+                                        className="input input-bordered w-full"
                                         readOnly
                                     />
                                 </div>
@@ -171,25 +181,30 @@ const ModalForUpdate = ({ id }) => {
                             <textarea
                                 name="description"
                                 defaultValue={group?.description}
-                                className="textarea w-full"
+                                className="textarea textarea-bordered w-full"
                                 placeholder="Group description"
                                 required
                             ></textarea>
                         </div>
 
-                        {/* Buttons */}
-                        <div className="flex flex-col md:flex-row gap-4 mt-6">
-                            <button type="submit" className="btn btn-primary w-full md:w-auto">
+                        {/* Footer Buttons */}
+                        <div className="flex justify-between items-center mt-6">
+                            <button type="submit" className="btn btn-primary">
                                 Update
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => document.getElementById('my_modal_4').close()}
+                                className="btn btn-warning"
+                            >
+                                Close
                             </button>
                         </div>
                     </form>
-                    <div method="dialog" className="w-fit border-2 flex justify-end">
-                        <button onClick={() => document.getElementById('my_modal_4').close()} className="btn btn-warning w-full">Close</button>
-                    </div>
                 </div>
             </dialog>
         </div>
+
     );
 };
 

@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
 import { Fade } from 'react-awesome-reveal';
 import Navbar from './Navbar';
+import registerAnimation from '../../public/animations/boyWithLaptop.json'
+import Lottie from 'lottie-react';
 
 const SignUp = () => {
 
@@ -106,12 +108,12 @@ const SignUp = () => {
     return (
         <>
             <Navbar></Navbar>
-            <Fade cascade damping={0.5}>
-
-                <div className="flex items-center justify-center min-h-[90vh] p-6">
-                    <div className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+            <section className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-10 gap-10">
+                {/* Form Section */}
+                <Fade cascade damping={0.5} className="w-full md:w-1/2">
+                    <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
                         <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 select-none">
-                            Sign up now!
+                            Sign Up
                         </h1>
 
                         <form onSubmit={handleCreateUser} className="space-y-6">
@@ -192,8 +194,13 @@ const SignUp = () => {
                             </button>
                         </form>
                     </div>
+                </Fade>
+
+                {/* Animation Section */}
+                <div className="w-full md:w-1/2 flex justify-center items-center">
+                    <Lottie animationData={registerAnimation} className="w-[100%]" />
                 </div>
-            </Fade>
+            </section>
         </>
     );
 };

@@ -2,32 +2,42 @@ import React, { use } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import ThemeToggle from '../components/ThemeToggle';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase/firebase.init';
 import Swal from 'sweetalert2';
 
 const DashboardNavigation = () => {
 
-    const { user } = use(AuthContext);
-    const Navigate = useNavigate();
+    const { user, userSignOut } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
-        signOut(auth).then(() => {
-            Swal.fire({
-                // position: "top-end",
-                icon: "success",
-                title: "Signed out successful! Still you can visit the homepage",
-                showConfirmButton: false,
-                timer: 2000
-            });
-            Navigate('/SignIn')
-        }).catch((error) => {
+        Swal.fire({
+            title: "Want to Log out!",
+            text: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Log out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                userSignOut().then(() => {
+                    Swal.fire({
+                        title: "Logged out successful!",
+                        text: "still you can visit the Homepage.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/SignIn')
+                }).catch((error) => {
 
+                });
+            }
         });
     }
 
     return (
-        <div className="w-full sticky top-0 h-[90vh] overflow-y-auto pr-0 md:pr-4 border-r border-indigo-300 bg-base-300 rounded-xl shadow-md">
+        <div className="w-full sticky my-auto top-0 h-[90vh] overflow-y-auto pr-0 border-r border-indigo-300 bg-base-300 rounded-xl shadow-md">
             <div className="flex flex-col h-full">
                 {/* Top Navigation */}
                 {/* Logo */}
@@ -37,8 +47,10 @@ const DashboardNavigation = () => {
                         <span className='hidden md:flex'>HOBBINS</span>
                     </p>
                 </Link>
-                <nav className="mb-6 border-t-2 border-indigo-300">
-                    <h2 className="text-xl font-bold mb-4 pl-4 pt-4 border-b-2 md:border-b-0 text-center">Dashboard</h2>
+                <nav className="mb-6">
+                    <div className='bg-indigo-400 text-white'>
+                        <h2 className="text-xl font-bold border-b-2 md:border-b-0 text-center">Dashboard</h2>
+                    </div>
                     <ul className="space-y-2 mx-2">
                         <li>
                             <NavLink

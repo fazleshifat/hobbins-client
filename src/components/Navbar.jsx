@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { signOut } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import { auth } from '../firebase/firebase.init';
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -28,8 +26,30 @@ const Navbar = () => {
     }, [lastScrollY]);
 
     const handleSignOut = () => {
-        userSignOut();
-        navigate('/signIn');
+        Swal.fire({
+            title: "Want to Log out!",
+            text: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Log out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                userSignOut().then(() => {
+                    Swal.fire({
+                        title: "Logged out successful!",
+                        text: "still you can visit the Homepage.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/SignIn')
+                }).catch((error) => {
+
+                });
+            }
+        });
     }
 
     const links = (

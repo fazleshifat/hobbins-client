@@ -28,28 +28,28 @@ export default function Slider() {
                 }}
                 pagination={true}
                 modules={[EffectCoverflow, Pagination]}
-                className="mySwiper h-[300px]"
+                className="mySwiper md:h-[300px]"
             >
                 <SwiperSlide>
-                    <img src="/assets/photographer.png" className='mx-auto h-full'/>
+                    <img src="/assets/photographer.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/coding.png" className='mx-auto h-full'/>
+                    <img src="/assets/coding.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/skethcers.png" className='mx-auto h-full'/>
+                    <img src="/assets/skethcers.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/booklovers.png" className='mx-auto h-full'/>
+                    <img src="/assets/booklovers.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/fishing.png" className='mx-auto h-full'/>
+                    <img src="/assets/fishing.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/guitars.png" className='mx-auto h-full'/>
+                    <img src="/assets/guitars.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/assets/cooking.png" className='mx-auto h-full'/>
+                    <img src="/assets/cooking.png" className='mx-auto h-76 w-76 md:w-auto md:h-full'/>
                 </SwiperSlide>
 
             </Swiper>

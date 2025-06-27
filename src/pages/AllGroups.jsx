@@ -65,7 +65,7 @@ const AllGroups = () => {
                         onChange={handleToggleAvailable}
                         value={filterType}
                         name="groupFilter"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        className="w-full px-4 py-2 border bg-white dark:bg-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
                     >
                         <option value="all">All Groups</option>
                         <option value="available">Available Groups</option>
@@ -77,7 +77,7 @@ const AllGroups = () => {
                         onChange={(e) => setFilterView(e.target.value)}
                         value={filterView}
                         name="groupFilter"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-indigo-400"
                     >
                         <option value="table">Table View</option>
                         <option value="card">Card View</option>

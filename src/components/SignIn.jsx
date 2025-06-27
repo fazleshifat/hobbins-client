@@ -5,7 +5,9 @@ import Swal from 'sweetalert2';
 import Spinner from './Spinner';
 import { Fade } from 'react-awesome-reveal';
 import Navbar from './Navbar';
-// import { GoogleAuthProvider } from 'firebase/auth';
+import Lottie from 'lottie-react';
+
+import loginAnimation from '../../public/animations/boyGlass.json'
 
 const SignIn = () => {
 
@@ -66,9 +68,10 @@ const SignIn = () => {
     return (
         <>
             <Navbar></Navbar>
-            <Fade cascade damping={0.5}>
-                <div className="flex items-center justify-center min-h-[90vh] p-6">
-                    <div className="w-full max-w-xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+            <section className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-10 gap-10">
+                {/* Form Section */}
+                <Fade cascade damping={0.5} className="w-full md:w-1/2">
+                    <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
                         <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 select-none">
                             Sign In
                         </h1>
@@ -150,7 +153,6 @@ const SignIn = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="inline"
                             >
-                                <path d="M0 0H512V512H0z" />
                                 <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341" />
                                 <path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57" />
                                 <path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73" />
@@ -159,8 +161,13 @@ const SignIn = () => {
                             Login with Google
                         </button>
                     </div>
+                </Fade>
+
+                {/* Animation Section */}
+                <div className="w-full md:w-1/2 flex justify-center items-center">
+                    <Lottie animationData={loginAnimation} className="w-[1000%]" />
                 </div>
-            </Fade>
+            </section>
 
         </>
     );
