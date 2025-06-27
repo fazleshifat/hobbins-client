@@ -8,12 +8,35 @@ const DashboardOverview = () => {
     const { user } = use(AuthContext);
     const { creationTime } = user;
     const [userProfile, setUserProfile] = useState({});
+    const [allGroups, setAllGroups] = useState([]);
+    const [myGroups, setMyGroups] = useState([]);
+    const [time, setTime] = useState(new Date().toLocaleDateString());
+    const [date, setDate] = useState(new Date().toDateString());
+
+
+    // ⏱️ Live Time
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(new Date().toLocaleTimeString());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         fetch(`https://hobbins-server.vercel.app/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setUserProfile(data))
     }, [user])
+    useEffect(() => {
+        fetch(`https://hobbins-server.vercel.app/groups`)
+            .then(res => res.json())
+            .then(data => setAllGroups(data))
+    }, [user])
+
+    useEffect(() => {
+        const filtered = allGroups.filter(group => group?.userEmail === user?.email)
+        setMyGroups(filtered);
+    }, [allGroups])
 
 
     return (
@@ -24,15 +47,18 @@ const DashboardOverview = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 <div className="p-5 bg-white dark:bg-base-300 shadow rounded-xl border border-gray-200 dark:border-gray-600">
                     <p className="text-gray-600 dark:text-gray-300">📊 Total Groups</p>
-                    <h3 className="text-3xl font-bold text-purple-600">12</h3>
+                    {
+                        allGroups && <h3 className="text-3xl font-bold text-purple-600">{allGroups.length}</h3>
+                    }
                 </div>
                 <div className="p-5 bg-white dark:bg-base-300 shadow rounded-xl border border-gray-200 dark:border-gray-600">
                     <p className="text-gray-600 dark:text-gray-300">👥 My Groups</p>
-                    <h3 className="text-3xl font-bold text-purple-600">4</h3>
+                    <h3 className="text-3xl font-bold text-purple-600">{myGroups?.length}</h3>
                 </div>
                 <div className="p-5 bg-white dark:bg-base-300 shadow rounded-xl border border-gray-200 dark:border-gray-600">
-                    <p className="text-gray-600 dark:text-gray-300">💬 Messages</p>
-                    <h3 className="text-3xl font-bold text-purple-600">28</h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-semibold">⌚ Date & Time</p>
+                    <h3 className="text-2xl font-bold w-fit py-2 px-6 rounded-3xl text-white bg-black/80">{time}</h3>
+                    <h3 className="text-3xl font-bold text-purple-400">{date}</h3>
                 </div>
             </div>
 

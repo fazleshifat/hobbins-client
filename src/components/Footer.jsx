@@ -1,6 +1,9 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router';
+import { FaGithub } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -23,6 +26,13 @@ const Footer = () => {
                         <Link className="hover:underline">Reviews</Link>
                         <Link className="hover:underline">About Us</Link>
                         <Link className="hover:underline">Contact</Link>
+                    </div>
+                </nav>
+                <nav>
+                    <div className="flex flex-wrap gap-4">
+                        <a href='https://github.com/fazleshifat' target='_blank'><FaGithub className='text-2xl' /></a>
+                        <a href='https://web.facebook.com/al.fazle.shifat/' target='_blank'><FaFacebookSquare className='text-2xl' /></a>
+                        <a href='https://www.linkedin.com/in/fazle-shifat-5490a8270/' target='_blank'><FaLinkedin className='text-2xl' /></a>
                     </div>
                 </nav>
             </footer>

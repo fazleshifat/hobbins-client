@@ -67,34 +67,97 @@ const SignIn = () => {
         <>
             <Navbar></Navbar>
             <Fade cascade damping={0.5}>
-                <div className="flex items-center m-4 md:m-0 md:min-h-screen">
+                <div className="flex items-center justify-center min-h-[90vh] p-6">
+                    <div className="w-full max-w-xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+                        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 select-none">
+                            Sign In
+                        </h1>
 
-                    <div className="flex-col w-md mx-auto">
-                        <div className="bg-base-100 p-4 shadow-2xl dark:bg-gradient-to-br from-indigo-200 via-purple-100 to-pink-100 dark:border border-indigo-500 rounded-2xl">
-                            <h1 className="text-3xl md:text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Sign In</h1>
-                            <div className="card-body">
-                                <form onSubmit={handleSignIn}>
-                                    <label className="label">Email</label>
-                                    <input type="email" name='email' className="input w-full dark:bg-white" placeholder="Email" required onChange={() => setErrorMessage(null)} />
-                                    <label className="label">Password</label>
-                                    <input type="password" name='password' className="input w-full dark:bg-white" placeholder="Password" required onChange={() => setErrorMessage(null)} />
-                                    <div><a className="link link-hover">Forgot password?</a></div>
-                                    <div className='mt-3'>Don't have an account? <Link to='/SignUp' className='text-primary'>Sign Up</Link></div>
+                        <form onSubmit={handleSignIn} className="space-y-6">
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                    onChange={() => setErrorMessage(null)}
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
+                            </div>
 
-                                    {errorMessage && (
-                                        <p className="text-md text-red-500 mt-2">{errorMessage}</p>
-                                    )}
-                                    <button className="btn btn-neutral w-full mt-4">Sign In</button>
+                            <div>
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Your password"
+                                    required
+                                    onChange={() => setErrorMessage(null)}
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
+                            </div>
 
-                                </form>
+                            <div className="flex justify-between items-center text-sm">
+                                <a href="#" className="text-purple-600 hover:text-purple-800 transition">
+                                    Forgot password?
+                                </a>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    Don't have an account?{' '}
+                                    <Link to="/SignUp" className="text-purple-600 font-semibold hover:underline">
+                                        Sign Up
+                                    </Link>
+                                </p>
+                            </div>
 
-                                {/* Google */}
-                                <button onClick={handleSignInWithGoogle} className="btn w-full mt-2 bg-white text-black border-[#e5e5e5]">
-                                    <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
-                                    Login with Google
-                                </button>
+                            {errorMessage && (
+                                <p className="text-sm text-red-500 text-center">{errorMessage}</p>
+                            )}
+
+                            <button
+                                type="submit"
+                                className="w-full cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:from-purple-700 hover:to-pink-600 transition"
+                            >
+                                Sign In
+                            </button>
+                        </form>
+
+                        <div className="relative my-6">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t border-gray-300 dark:border-gray-700"></div>
+                            </div>
+                            <div className="relative flex justify-center text-sm text-gray-500 dark:text-gray-400">
+                                Or continue with
                             </div>
                         </div>
+
+                        <button
+                            onClick={handleSignInWithGoogle}
+                            className="w-full cursor-pointer bg-white flex items-center justify-center gap-2 py-3 border border-gray-300 dark:border-gray-700 rounded-xl text-black hover:shadow-lg transition"
+                        >
+                            <svg
+                                aria-label="Google logo"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 512 512"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="inline"
+                            >
+                                <path d="M0 0H512V512H0z" />
+                                <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341" />
+                                <path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57" />
+                                <path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73" />
+                                <path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55" />
+                            </svg>
+                            Login with Google
+                        </button>
                     </div>
                 </div>
             </Fade>

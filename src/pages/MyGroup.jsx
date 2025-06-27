@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import { FaCalendarAlt, FaTag, FaUser } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigation } from 'react-router';
@@ -14,7 +14,7 @@ const myGroup = () => {
     const { user } = use(AuthContext);
     const groups = useLoaderData();
 
-    const [selectedGroup, setSelectedGroup] = useState(null);
+    const [selectedGroup, setSelectedGroup] = useState({});
 
     const myAllGroup = groups.filter(group => group.userEmail === user.email)
     const [remainingGroup, setRemainingGroup] = useState(myAllGroup);
@@ -27,10 +27,6 @@ const myGroup = () => {
         return <Spinner />;
     }
 
-    // const [isModalOpen, setIsModalOpen] = useState(false);
-
-    // const update = () => setIsModalOpen(true);
-    // const closeModal = () => setIsModalOpen(false);
 
     const handleDeleteGroup = (id) => {
 
@@ -101,9 +97,6 @@ const myGroup = () => {
                                 }
                             </tr>
                         </thead>
-
-
-
 
 
                         <tbody>
@@ -180,9 +173,7 @@ const myGroup = () => {
                                                 >
                                                     Update
                                                 </button>
-                                                {selectedGroup && (
-                                                    <ModalForUpdate group={selectedGroup}></ModalForUpdate>
-                                                )}
+
                                                 <button onClick={() => handleDeleteGroup(myGroup?._id)} className="btn text-white w-10 md:w-fit btn-error btn-xs md:btn-sm">Delete</button>
 
 
@@ -206,6 +197,7 @@ const myGroup = () => {
                     </table>
                 </div>
             </div>
+            <ModalForUpdate id={selectedGroup._id} />
         </Fade>
     );
 };

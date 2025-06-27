@@ -4,31 +4,26 @@ import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 
-const ModalForUpdate = ({ group }) => {
-
-    console.log(group)
-
+const ModalForUpdate = ({ id }) => {
+    
+    const [group, setGroup] = useState({});
     const { user } = use(AuthContext);
-    // const [groupData, setGroupData] = useState(null); // Store fetched group data
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (id) {
-    //         fetch(`https://hobbins-server.vercel.app/groups/${id}`)
-    //             .then(res => res.json())
-    //             .then(data => setGroupData(data))
-    //             .catch(err => console.error(err));
-    //     }
-    // }, [id]);
+    useEffect(() => {
+        fetch(`https://hobbins-server.vercel.app/groups/${id}`)
+            .then(res => res.json())
+            .then(data => setGroup(data))
+    }, [id])
 
     const handleUpdateGroup = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const updatedGroup = Object.fromEntries(formData.entries());
-        
 
-        fetch(`https://hobbins-server.vercel.app/groups/${_id}`, {
+
+        fetch(`https://hobbins-server.vercel.app/groups/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updatedGroup),
@@ -65,7 +60,7 @@ const ModalForUpdate = ({ group }) => {
                                     <input
                                         type="text"
                                         name="name"
-                                        // defaultValue={groupData?.name}
+                                        defaultValue={group?.name}
                                         className="input w-full"
                                         placeholder="Group name"
                                         required
@@ -76,7 +71,7 @@ const ModalForUpdate = ({ group }) => {
                                     <label className="label">Category</label>
                                     <select
                                         name="category"
-                                        // defaultValue={groupData?.category}
+                                        defaultValue={group?.category}
                                         className="input w-full"
                                         required
                                     >
@@ -100,7 +95,7 @@ const ModalForUpdate = ({ group }) => {
                                     <input
                                         type="date"
                                         name="startDate"
-                                        // defaultValue={groupData?.startDate}
+                                        defaultValue={group?.startDate}
                                         className="input w-full"
                                         required
                                     />

@@ -6,11 +6,29 @@ const ErrorPage = () => {
     return (
         <>
             {/* <Navbar></Navbar> */}
-            <div className='w-fit flex min-h-screen mx-auto'>
-                <div className="mx-auto flex items-center justify-center flex-col">
-                    <img src="/assets/errorimage.jpg" className='w-6/12' alt="error" />
-                    <h1 className='text-gray-400 text-2xl'>page not found</h1>
-                    <Link to='/' className='btn btn-primary flex text-md w-fit mt-10'>back to homepage</Link>
+            <div className="min-h-screen flex items-center justify-center px-4">
+                <div className=" p-10 max-w-xl w-full text-center">
+
+                    <img
+                        src="/assets/errorimage.jpg"
+                        alt="404 Not Found"
+                        className="w-64 h-64 object-contain mx-auto mb-6 animate-pulse"
+                    />
+
+                    <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-4">
+                        Page Not Found
+                    </h1>
+
+                    <p className="text-gray-600 dark:text-gray-300 text-md mb-6">
+                        Sorry, the page you’re looking for doesn’t exist or has been moved.
+                    </p>
+
+                    <Link
+                        to="/"
+                        className="inline-block px-6 py-3 text-white font-semibold bg-gradient-to-r from-purple-600 to-pink-500 rounded-xl shadow-md hover:from-purple-700 hover:to-pink-600 transition-all duration-300"
+                    >
+                        Back to Homepage
+                    </Link>
                 </div>
             </div>
         </>

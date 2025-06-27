@@ -108,28 +108,89 @@ const SignUp = () => {
             <Navbar></Navbar>
             <Fade cascade damping={0.5}>
 
-                <div className="flex items-center m-4 md:m-0 md:min-h-screen">
-                    <div className="flex-col w-lg mx-auto">
-                        <div className="bg-base-100 p-4 shadow-2xl rounded-3xl dark:bg-gradient-to-br from-indigo-200 via-purple-100 to-pink-100">
-                            <h1 className="text-3xl md:text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Sign up now!</h1>
-                            <div className="card-body">
-                                <form onSubmit={handleCreateUser}>
-                                    <label className="label">Name</label>
-                                    <input type="text" name='name' className="input w-full dark:bg-white" placeholder="name" required />
-                                    <label className="label">Photo URL</label>
-                                    <input type="text" name='photo' className="input w-full dark:bg-white" placeholder="photo url" required onChange={() => setErrorMessage(null)} />
-                                    <label className="label">Email</label>
-                                    <input type="email" name='email' className="input w-full dark:bg-white" placeholder="Email" required />
-                                    <label className="label">Password</label>
-                                    <input type="password" name='password' className="input w-full dark:bg-white" placeholder="Password" required onChange={() => setErrorMessage(null)} />
-                                    <div className='mt-3'>Already have an account? <Link to='/SignIn' className='text-primary'>SignIn</Link></div>
-                                    {
-                                        errorMessage && <p className='text-red-500'>{errorMessage}</p>
-                                    }
-                                    <button className="btn btn-neutral w-full mt-4">Sign Up</button>
-                                </form>
+                <div className="flex items-center justify-center min-h-[90vh] p-6">
+                    <div className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+                        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 select-none">
+                            Sign up now!
+                        </h1>
+
+                        <form onSubmit={handleCreateUser} className="space-y-6">
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your full name"
+                                    required
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
                             </div>
-                        </div>
+
+                            <div>
+                                <label htmlFor="photo" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Photo URL
+                                </label>
+                                <input
+                                    type="text"
+                                    id="photo"
+                                    name="photo"
+                                    placeholder="Image URL"
+                                    required
+                                    onChange={() => setErrorMessage(null)}
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Create a password"
+                                    required
+                                    onChange={() => setErrorMessage(null)}
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                                />
+                            </div>
+
+                            <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+                                Already have an account?{' '}
+                                <Link to="/SignIn" className="text-purple-600 font-semibold hover:underline">
+                                    Sign In
+                                </Link>
+                            </p>
+
+                            {errorMessage && (
+                                <p className="text-sm text-red-500 text-center">{errorMessage}</p>
+                            )}
+
+                            <button
+                                type="submit"
+                                className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:from-purple-700 hover:to-pink-600 transition"
+                            >
+                                Sign Up
+                            </button>
+                        </form>
                     </div>
                 </div>
             </Fade>

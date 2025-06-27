@@ -96,21 +96,16 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <div className='flex items-center bg-base-300 p-2 rounded-3xl'>
-                                    <div className="dropdown dropdown-hover flex items-center mx-auto">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
+                                    <div className="drawer-content flex items-center mx-auto">
+                                        <label htmlFor="my-drawer-4" className=" w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden cursor-pointer">
                                             <img
-                                                className='rounded-full object-cover w-full h-full'
+                                                className="rounded-full object-cover w-full h-full"
                                                 alt="User Avatar"
                                                 src={user.photoURL}
                                             />
-                                        </div>
-                                        <p className="text-center text-sm ml-2 bg-gray-200 py-2 px-3 rounded-2xl hidden">{user.displayName}</p>
-
-                                        <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-30 absolute z-10  p-2 shadow text-sm mt-20">
-                                            <p className="text-center dark:text-white">{user.displayName}</p>
-                                        </div>
+                                        </label>
                                     </div>
-                                    <button onClick={handleSignOut} className='btn btn-accent btn-sm text-white ml-1'>Logout</button>
+                                    <button onClick={handleSignOut} className='hidden md:flex btn btn-accent btn-sm text-white ml-1'>Logout</button>
                                 </div>
                             </>
                         )
