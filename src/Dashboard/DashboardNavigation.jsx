@@ -1,14 +1,33 @@
 import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthContexts';
 import ThemeToggle from '../components/ThemeToggle';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/firebase.init';
+import Swal from 'sweetalert2';
 
 const DashboardNavigation = () => {
 
-    const { user, userSignOut } = use(AuthContext);
+    const { user } = use(AuthContext);
+    const Navigate = useNavigate();
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+            Swal.fire({
+                // position: "top-end",
+                icon: "success",
+                title: "Signed out successful! Still you can visit the homepage",
+                showConfirmButton: false,
+                timer: 2000
+            });
+            Navigate('/SignIn')
+        }).catch((error) => {
+
+        });
+    }
 
     return (
-        <div className="w-full sticky top-0 h-screen md:h-[90vh] overflow-y-auto pr-0 md:pr-4 border-r border-indigo-300 bg-base-300 rounded-xl shadow-md">
+        <div className="w-full sticky top-0 h-[90vh] overflow-y-auto pr-0 md:pr-4 border-r border-indigo-300 bg-base-300 rounded-xl shadow-md">
             <div className="flex flex-col h-full">
                 {/* Top Navigation */}
                 {/* Logo */}
@@ -103,16 +122,17 @@ const DashboardNavigation = () => {
                             className="w-10 h-10 rounded-full"
                         />
                         <p>{user?.displayName}</p>
+                        <ThemeToggle></ThemeToggle>
                     </div>
                     <button
-                        onClick={() => userSignOut()}
+                        onClick={() => handleSignOut()}
                         className="btn btn-accent btn-sm text-white"
                     >
                         Logout
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

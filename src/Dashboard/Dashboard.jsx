@@ -13,21 +13,23 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className='block md:hidden'>
-                <Navbar></Navbar>
-            </div>
-            <section className="max-w-full h-[100vh] mx-auto p-2 md:p-5 flex flex-col md:flex-row">
-                {/* Sidebar */}
-                <div className='hidden md:block md:w-3/12'>
-                    <DashboardNavigation></DashboardNavigation>
+            {user && <>
+                <div className='block md:hidden'>
+                    <Navbar></Navbar>
                 </div>
+                <section className="max-w-full h-[100vh] mx-auto p-2 md:p-5 flex flex-col md:flex-row">
+                    {/* Sidebar */}
+                    <div className='hidden md:block md:w-3/12'>
+                        <DashboardNavigation></DashboardNavigation>
+                    </div>
 
-                {/* Main Content */}
-                <div className="w-full md:w-9/12 md:pl-4 overflow-y-auto">
-                    <Outlet />
-                </div>
-            </section>
-            <SidePanel></SidePanel>
+                    {/* Main Content */}
+                    <div className="w-full md:w-9/12 md:pl-4 overflow-y-auto">
+                        <Outlet />
+                    </div>
+                </section>
+                <SidePanel></SidePanel>
+            </>}
         </>
     );
 };
